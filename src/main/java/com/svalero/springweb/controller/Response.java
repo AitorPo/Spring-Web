@@ -16,7 +16,6 @@ import lombok.Data;
 public class Response {
     public static final int NO_ERROR = 0;
     public static final int NOT_FOUND = 101;
-    public static final Product PRODUCT = null;
 
     public static final String NO_MESSAGE = "Action succesfully done!";
 
@@ -27,7 +26,7 @@ public class Response {
     static class Error{
         private long errorCode;
         private String errorMessage;
-        private Product product;
+        //private Product product;
 
         public Error(int errorCode, String errorMessage) {
             this.errorCode = errorCode;
