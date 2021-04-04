@@ -5,6 +5,7 @@ package com.svalero.springweb.controller;
 import com.svalero.springweb.domain.Order;
 import com.svalero.springweb.domain.dto.OrderDTO;
 import com.svalero.springweb.service.OrderService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Tag(name = "Orders", description = "Listado de pedidos")
 public class OrderController {
 
     private final Logger logger = LoggerFactory.getLogger(OrderController.class);

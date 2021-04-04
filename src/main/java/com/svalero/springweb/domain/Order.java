@@ -17,27 +17,37 @@ import java.util.List;
 @Entity(name = "orders")
 public class Order {
 
-    //@Schema(description = "Identificador de cada pedido", example = "1")
+    @Schema(description = "Identificador de cada pedido", example = "1")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
-    //@Schema(description = "Código alfanumérico generado aleatoriamente en cada pedido", example = "asd5-asd4...")
+    @Schema(description = "Código alfanumérico generado aleatoriamente en cada pedido", example = "asd5-asd4...")
     @Column
     private String number;
 
-    //@Schema(description = "Fecha de realización del pedido", example = "04-04-2021")
+    @Schema(description = "Fecha de realización del pedido", example = "04-04-2021")
     @Column
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime date;
 
-    //@Schema(description = "Precio del pedido", example = "125.05", defaultValue = "0.00")
+    @Schema(description = "Precio del pedido", example = "125.05", defaultValue = "0.00")
     @Column
-    //@Min(value = 0)
+    @Min(value = 0)
     private float price;
+
+    @Schema(description = "Estado del pedido: enviado o no en caso de que sea a domicilio", example = "false", defaultValue = "0")
+    @Column
+    private boolean shipped;
+
+    @Schema(description = "Identificador del vendedor/a que ha expedido la factura", example = "1", required = true)
+    @ManyToOne
+    @JoinColumn(name = "vendor_id")
+    private Vendor vendor;
 
     // nombre del atributo que se quiere referenciar. En este caso "order" hace referencia al atributor Order order de la clase Order
     // mappedBy SIEMPRE va situado en el lado 1 de la relación
+    @Schema(description = "Conjunto de datos referentes a los productos comprados")
     @OneToMany(mappedBy = "order")
     private List<OrderDetail> details;
 
