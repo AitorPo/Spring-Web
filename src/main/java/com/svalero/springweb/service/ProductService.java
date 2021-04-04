@@ -7,7 +7,7 @@ import java.util.Set;
 
 public interface ProductService {
 
-    // Método que contendrá un if para ejecutar findAll() si no existe category o findByCategory() si sí que existe
+    // Método de ProductSeviceImpl que contendrá un if para ejecutar findAll() si no existe category o findByCategory() si sí que existe
     Set<Product> findProducts(String category);
     // Devuelve todos los productos de la BD
     Set<Product> findAll();

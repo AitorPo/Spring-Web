@@ -1,5 +1,6 @@
 package com.svalero.springweb.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,8 +36,9 @@ public class Product {
     @Column
     private float price;
 
-    @Schema(description = "Fecha de alta del producto", example = "2021-04-04")
+    @Schema(description = "Fecha de alta del producto", example = "04-04-2021")
     @Column(name = "created_at")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime createdAt;
 
 }
