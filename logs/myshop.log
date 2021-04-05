@@ -9561,3 +9561,330 @@ com.svalero.springweb.controller.ProductController#getProduct(String) mapped.
 2021-04-05 14:37:55,329 INFO com.svalero.springweb.controller.ProductController [http-nio-8080-exec-9] Fin de getProducts()
 2021-04-05 14:37:59,752 INFO com.svalero.springweb.controller.ProductController [http-nio-8080-exec-10] Inicio de getProducts()
 2021-04-05 14:37:59,756 INFO com.svalero.springweb.controller.ProductController [http-nio-8080-exec-10] Fin de getProducts()
+2021-04-05 16:29:44,002 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 19632 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
+2021-04-05 16:29:44,022 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-05 16:29:44,821 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 16:29:44,902 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 71 ms. Found 6 JPA repository interfaces.
+2021-04-05 16:29:45,527 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:29:45,538 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:29:45,539 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-05 16:29:45,540 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 16:29:45,670 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-05 16:29:45,671 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1604 ms
+2021-04-05 16:29:45,871 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 16:29:45,922 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 16:29:46,064 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 16:29:46,173 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-05 16:29:46,178 WARN com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-04-05 16:29:46,355 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-05 16:29:46,396 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-05 16:29:47,195 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 16:29:47,204 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 16:29:47,798 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 16:29:47,859 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:29:47,982 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page template: index
+2021-04-05 16:29:48,549 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:29:48,583 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:29:48,591 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 5.063 seconds (JVM running for 5.49)
+2021-04-05 16:30:02,216 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:30:02,217 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:30:02,218 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2021-04-05 16:30:02,288 INFO com.svalero.springweb.controller.VendorController [http-nio-8080-exec-1] Inicio de getVendors()
+2021-04-05 16:30:02,365 INFO com.svalero.springweb.controller.VendorController [http-nio-8080-exec-1] Fin de getVendors()
+2021-04-05 16:31:53,837 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-8] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.svalero.springweb.domain.Shop` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (3); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.svalero.springweb.domain.Shop` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (3)
+ at [Source: (PushbackInputStream); line: 8, column: 13] (through reference chain: com.svalero.springweb.domain.Vendor["shop"])]
+2021-04-05 16:32:29,743 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-10] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.svalero.springweb.domain.Shop` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (1); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.svalero.springweb.domain.Shop` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (1)
+ at [Source: (PushbackInputStream); line: 8, column: 13] (through reference chain: com.svalero.springweb.domain.Vendor["shop"])]
+2021-04-05 16:32:40,260 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-1] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 9, column: 6]]
+2021-04-05 16:33:04,419 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-5] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.svalero.springweb.domain.Shop` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (2); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.svalero.springweb.domain.Shop` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (2)
+ at [Source: (PushbackInputStream); line: 8, column: 13] (through reference chain: com.svalero.springweb.domain.Vendor["shop"])]
+2021-04-05 16:37:07,677 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 8572 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
+2021-04-05 16:37:07,680 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-05 16:37:08,431 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 16:37:08,510 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 70 ms. Found 6 JPA repository interfaces.
+2021-04-05 16:37:09,100 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:37:09,111 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:37:09,112 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-05 16:37:09,113 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 16:37:09,245 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-05 16:37:09,245 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1519 ms
+2021-04-05 16:37:09,487 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 16:37:09,548 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 16:37:09,685 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 16:37:09,789 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-05 16:37:09,794 WARN com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-04-05 16:37:09,984 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-05 16:37:10,026 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-05 16:37:10,840 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 16:37:10,849 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 16:37:11,580 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 16:37:11,649 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:37:11,813 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page template: index
+2021-04-05 16:37:12,446 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:37:12,471 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:37:12,480 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 5.455 seconds (JVM running for 5.871)
+2021-04-05 16:37:38,445 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:37:38,446 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:37:38,447 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2021-04-05 16:37:53,349 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-4] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.svalero.springweb.domain.Shop` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (2); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.svalero.springweb.domain.Shop` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (2)
+ at [Source: (PushbackInputStream); line: 8, column: 16] (through reference chain: com.svalero.springweb.domain.Vendor["shop_id"])]
+2021-04-05 16:39:40,677 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 14128 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
+2021-04-05 16:39:40,680 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-05 16:39:41,453 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 16:39:41,531 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 68 ms. Found 6 JPA repository interfaces.
+2021-04-05 16:39:42,129 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:39:42,140 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:39:42,141 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-05 16:39:42,142 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 16:39:42,270 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-05 16:39:42,270 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1547 ms
+2021-04-05 16:39:42,470 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 16:39:42,529 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 16:39:42,677 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 16:39:42,784 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-05 16:39:42,787 WARN com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-04-05 16:39:42,962 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-05 16:39:43,003 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-05 16:39:43,866 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 16:39:43,876 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 16:39:44,498 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 16:39:44,560 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:39:44,688 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page template: index
+2021-04-05 16:39:45,364 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:39:45,391 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:39:45,400 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 5.205 seconds (JVM running for 5.612)
+2021-04-05 16:39:48,201 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:39:48,201 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:39:48,202 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2021-04-05 16:39:52,898 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-3] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.svalero.springweb.domain.Shop` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (2); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.svalero.springweb.domain.Shop` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (2)
+ at [Source: (PushbackInputStream); line: 8, column: 13] (through reference chain: com.svalero.springweb.domain.Vendor["shop"])]
+2021-04-05 16:43:59,877 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 2224 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
+2021-04-05 16:43:59,881 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-05 16:44:00,767 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 16:44:00,851 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 75 ms. Found 6 JPA repository interfaces.
+2021-04-05 16:44:01,564 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:44:01,577 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:44:01,578 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-05 16:44:01,579 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 16:44:01,722 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-05 16:44:01,722 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1766 ms
+2021-04-05 16:44:01,937 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 16:44:01,989 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 16:44:02,129 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 16:44:02,239 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-05 16:44:02,243 WARN com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-04-05 16:44:02,420 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-05 16:44:02,460 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-05 16:44:03,268 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 16:44:03,278 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 16:44:03,854 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 16:44:03,916 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:44:04,045 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page template: index
+2021-04-05 16:44:04,612 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:44:04,640 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:44:04,649 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 5.33 seconds (JVM running for 5.746)
+2021-04-05 16:44:09,266 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:44:09,267 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:44:09,269 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2021-04-05 16:46:41,301 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 17532 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
+2021-04-05 16:46:41,304 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-05 16:46:42,057 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 16:46:42,139 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 72 ms. Found 6 JPA repository interfaces.
+2021-04-05 16:46:42,738 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:46:42,751 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:46:42,752 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-05 16:46:42,752 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 16:46:42,884 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-05 16:46:42,885 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1535 ms
+2021-04-05 16:46:43,080 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 16:46:43,132 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 16:46:43,275 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 16:46:43,381 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-05 16:46:43,385 WARN com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-04-05 16:46:43,562 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-05 16:46:43,603 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-05 16:46:44,437 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 16:46:44,446 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 16:46:45,022 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 16:46:45,085 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:46:45,210 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page template: index
+2021-04-05 16:46:45,781 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:46:45,807 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:46:45,815 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 4.978 seconds (JVM running for 5.379)
+2021-04-05 16:46:51,679 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:46:51,679 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:46:51,681 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 2 ms
+2021-04-05 16:49:25,503 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 10324 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
+2021-04-05 16:49:25,506 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-05 16:49:26,244 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 16:49:26,325 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 71 ms. Found 6 JPA repository interfaces.
+2021-04-05 16:49:26,925 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:49:26,936 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:49:26,937 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-05 16:49:26,938 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 16:49:27,071 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-05 16:49:27,071 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1520 ms
+2021-04-05 16:49:27,267 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 16:49:27,318 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 16:49:27,460 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 16:49:27,563 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-05 16:49:27,567 WARN com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-04-05 16:49:27,741 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-05 16:49:27,780 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-05 16:49:28,552 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 16:49:28,561 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 16:49:29,133 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 16:49:29,195 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:49:29,318 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page template: index
+2021-04-05 16:49:29,897 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:49:29,925 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:49:29,934 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 4.896 seconds (JVM running for 5.291)
+2021-04-05 16:49:34,543 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:49:34,543 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:49:34,544 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 0 ms
+2021-04-05 16:49:34,645 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-1] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot invoke "com.svalero.springweb.repository.ShopRepository.findById(long)" because "this.shopRepository" is null; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Cannot invoke "com.svalero.springweb.repository.ShopRepository.findById(long)" because "this.shopRepository" is null (through reference chain: com.svalero.springweb.domain.Vendor["shop"])]
+2021-04-05 16:49:45,483 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-5] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot invoke "com.svalero.springweb.repository.ShopRepository.findById(long)" because "this.shopRepository" is null; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Cannot invoke "com.svalero.springweb.repository.ShopRepository.findById(long)" because "this.shopRepository" is null (through reference chain: com.svalero.springweb.domain.Vendor["shop"])]
+2021-04-05 16:51:26,038 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 124 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
+2021-04-05 16:51:26,041 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-05 16:51:26,805 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 16:51:26,884 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 71 ms. Found 6 JPA repository interfaces.
+2021-04-05 16:51:27,486 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:51:27,497 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:51:27,498 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-05 16:51:27,498 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 16:51:27,629 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-05 16:51:27,629 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1543 ms
+2021-04-05 16:51:27,823 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 16:51:27,874 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 16:51:28,016 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 16:51:28,125 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-05 16:51:28,129 WARN com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-04-05 16:51:28,302 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-05 16:51:28,342 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-05 16:51:29,110 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 16:51:29,119 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 16:51:29,690 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 16:51:29,753 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:51:29,878 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page template: index
+2021-04-05 16:51:30,413 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:51:30,441 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:51:30,450 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 4.881 seconds (JVM running for 5.287)
+2021-04-05 16:51:33,726 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:51:33,727 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:51:33,728 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2021-04-05 16:51:33,935 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-1] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Problem deserializing property 'shop' (expected type: [simple type, class com.svalero.springweb.domain.Shop]; actual type: `java.util.Optional`), problem: argument type mismatch; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Problem deserializing property 'shop' (expected type: [simple type, class com.svalero.springweb.domain.Shop]; actual type: `java.util.Optional`), problem: argument type mismatch
+ at [Source: (PushbackInputStream); line: 8, column: 13] (through reference chain: com.svalero.springweb.domain.Vendor["shop"])]
+2021-04-05 16:52:26,531 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 2704 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
+2021-04-05 16:52:26,534 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-05 16:52:27,353 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 16:52:27,433 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 71 ms. Found 6 JPA repository interfaces.
+2021-04-05 16:52:28,330 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:52:28,424 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:52:28,426 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-05 16:52:28,427 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 16:52:28,593 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-05 16:52:28,594 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2015 ms
+2021-04-05 16:52:28,792 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 16:52:28,852 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 16:52:29,023 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 16:52:29,133 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-05 16:52:29,137 WARN com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-04-05 16:52:29,316 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-05 16:52:29,357 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-05 16:52:30,189 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 16:52:30,199 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 16:52:30,831 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 16:52:30,893 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:52:31,015 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page template: index
+2021-04-05 16:52:31,564 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:52:31,592 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:52:31,601 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 5.61 seconds (JVM running for 6.253)
+2021-04-05 16:53:17,651 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 3592 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
+2021-04-05 16:53:17,654 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-05 16:53:18,419 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 16:53:18,499 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 71 ms. Found 6 JPA repository interfaces.
+2021-04-05 16:53:19,098 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:53:19,109 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:53:19,110 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-05 16:53:19,111 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 16:53:19,243 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-05 16:53:19,243 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1545 ms
+2021-04-05 16:53:19,449 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 16:53:19,499 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 16:53:19,640 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 16:53:19,744 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-05 16:53:19,748 WARN com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-04-05 16:53:20,010 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-05 16:53:20,050 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-05 16:53:20,818 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 16:53:20,828 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 16:53:21,397 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 16:53:21,460 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:53:21,605 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page template: index
+2021-04-05 16:53:22,269 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:53:22,299 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:53:22,309 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 5.175 seconds (JVM running for 5.591)
+2021-04-05 16:53:24,449 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:53:24,450 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:53:24,451 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2021-04-05 16:55:01,880 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 13116 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
+2021-04-05 16:55:01,883 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-05 16:55:02,640 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 16:55:02,720 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 71 ms. Found 6 JPA repository interfaces.
+2021-04-05 16:55:03,323 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:55:03,334 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:55:03,335 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-05 16:55:03,336 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 16:55:03,466 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-05 16:55:03,466 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1538 ms
+2021-04-05 16:55:03,672 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 16:55:03,724 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 16:55:03,861 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 16:55:03,964 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-05 16:55:03,970 WARN com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-04-05 16:55:04,156 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-05 16:55:04,196 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-05 16:55:04,962 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 16:55:04,970 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 16:55:05,542 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 16:55:05,607 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:55:05,728 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page template: index
+2021-04-05 16:55:06,279 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:55:06,305 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:55:06,314 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 4.898 seconds (JVM running for 5.326)
+2021-04-05 16:55:08,887 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:55:08,888 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:55:08,889 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2021-04-05 16:55:22,287 INFO com.svalero.springweb.controller.VendorController [http-nio-8080-exec-4] Inicio de getVendors()
+2021-04-05 16:55:22,324 INFO com.svalero.springweb.controller.VendorController [http-nio-8080-exec-4] Fin de getVendors()
+2021-04-05 16:55:56,109 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 6584 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
+2021-04-05 16:55:56,113 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-05 16:55:56,865 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 16:55:56,943 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 70 ms. Found 6 JPA repository interfaces.
+2021-04-05 16:55:57,541 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:55:57,552 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:55:57,553 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-05 16:55:57,553 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 16:55:57,686 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-05 16:55:57,686 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1519 ms
+2021-04-05 16:55:57,887 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 16:55:57,938 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 16:55:58,076 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 16:55:58,188 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-05 16:55:58,192 WARN com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-04-05 16:55:58,369 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-05 16:55:58,410 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-05 16:55:59,171 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 16:55:59,181 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 16:55:59,763 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 16:55:59,825 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:55:59,951 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page template: index
+2021-04-05 16:56:00,490 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-05 16:56:00,518 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:56:00,527 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 4.915 seconds (JVM running for 5.316)
+2021-04-05 16:56:08,724 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:56:08,724 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:56:08,725 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2021-04-05 16:58:14,489 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-8] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 9, column: 6]]

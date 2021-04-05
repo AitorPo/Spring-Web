@@ -9,4 +9,8 @@ public interface VendorService {
 
     Set<Vendor> findAll();
     Optional<Vendor> findById(long id);
+
+    Vendor addVendor(Vendor vendor);
+    Vendor modifyVendor(long id, Vendor newVendor);
+    void deleteVendor(long id);
 }

@@ -81,8 +81,8 @@ public class ProductController {
     })
     @PostMapping(value = "/products", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Product> addProduct(@RequestBody Product product){
-        Product addedProduct = productService.addProduct(product);
-        return new ResponseEntity<>(addedProduct, HttpStatus.CREATED);
+        Product newProduct = productService.addProduct(product);
+        return new ResponseEntity<>(newProduct, HttpStatus.CREATED);
     }
 
     /**

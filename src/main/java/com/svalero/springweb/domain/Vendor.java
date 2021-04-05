@@ -1,6 +1,9 @@
 package com.svalero.springweb.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.svalero.springweb.api_config.ShopJsonDeserializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -46,6 +49,7 @@ public class Vendor {
     private int phone;
 
     @Schema(description = "Itentificador de la tienda a la que pertenece el vendedor/a", example = "1")
+    @JsonDeserialize(using = ShopJsonDeserializer.class)
     @ManyToOne
     @JoinColumn(name = "shop_id")   // Hace referencia al campo "shop_id" de la tabla "vendors"
     private Shop shop;

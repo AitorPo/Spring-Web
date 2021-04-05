@@ -8,5 +8,6 @@ import java.util.Set;
 public interface ShopService {
     Set<Shop> findAll();
     Optional<Shop> findById(long id);
+    Shop getShop(long id);
 
 }

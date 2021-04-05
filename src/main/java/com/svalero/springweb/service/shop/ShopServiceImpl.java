@@ -24,5 +24,10 @@ public class ShopServiceImpl implements ShopService{
         return shopRepository.findById(id);
     }
 
+    @Override
+    public Shop getShop(long id) {
+        return null;
+    }
+
 
 }
