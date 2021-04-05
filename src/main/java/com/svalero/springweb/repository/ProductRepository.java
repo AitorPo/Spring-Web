@@ -1,9 +1,12 @@
 package com.svalero.springweb.repository;
 
 import com.svalero.springweb.domain.Product;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Repository
@@ -11,6 +14,20 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     Set<Product> findAll();
     Set<Product> findByCategory(String category);
-    Product findByName(String name);
+    Set<Product> findByName(String name);
+    Set<Product> findByPrice(float price);
+    Set<Product> findByOnSale(boolean onSale);
+    Optional<Product> findById(long id);
+    Set<Product> findByCategoryAndNameAndPrice(String category, String name, float price);
+    Set<Product> findByCategoryAndName(String category, String name);
+    Set<Product> findByCategoryAndPrice(String category, float price);
     Set<Product> findByNameAndPrice(String name, float price);
+
+    // Rescatamos toda la información de los productos cuyo nombre contenga el String que pasamos por parámetro
+    @Query("FROM products WHERE name LIKE %:name%")
+    Set<Product> getProducts(@Param("name") String name);
+
+    // Rescatamos toda la información de los productos cuyo nombre contenga el String que pasamos por parámetro y la categoría "literal"
+    @Query("FROM products WHERE name like %:name% AND category LIKE :category")
+    Set<Product> getProductsByNameAndCategory(@Param("name") String name, @Param("category") String category);
 }

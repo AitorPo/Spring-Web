@@ -33,16 +33,20 @@ public class ProductController {
      * @param category
      * @return
      */
-    @Operation(summary = "Lista todos los productos de la BD")
+    @Operation(summary = "Lista todos los productos de la BD según los parámetros que se le pasen a la URL." +
+            "findProducts() gestionará dichos parámetros e invocará a unos métodos u otros que devolverán cada uno" +
+            "una response distinta")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Lisa de productos",
-                content = @Content(array = @ArraySchema(schema = @Schema(implementation = Product.class))))
+                    content = @Content(array = @ArraySchema(schema = @Schema(implementation = Product.class))))
     })
     @GetMapping(value = "/products", produces = "application/json")
-    public ResponseEntity<Set<Product>> getProducts(@RequestParam(value = "category", defaultValue = "") String category){
+    public ResponseEntity<Set<Product>> getProducts(@RequestParam(value = "category", defaultValue = "") String category,
+                                                    @RequestParam(value = "name", defaultValue = "") String name,
+                                                    @RequestParam(value = "price", defaultValue = "") Float price){
         logger.info("Inicio de getProducts()");
         Set<Product> products = null;
-        products = productService.findProducts(category);
+        products = productService.findProducts(category, name, price);
 
         logger.info("Fin de getProducts()");
         return new ResponseEntity<>(products, HttpStatus.OK);
@@ -119,7 +123,6 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-
     private Product applyPatchToProduct(JsonPatch patch, Product targetProduct) throws JsonPatchException, JsonProcessingException {
         ObjectMapper objectMapper = null;
         assert false;

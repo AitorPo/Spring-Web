@@ -16,12 +16,30 @@ public class ProductServiceImpl implements ProductService{
     private ProductRepository productRepository;
 
     @Override
-    public Set<Product> findProducts(String category) {
-        if(category.equals("")){
-            return  findAll();
-        } else {
+    public Set<Product> findProducts(String category, String name, Float price) {
+            // Existe category
+        if(!category.isBlank() && name.isBlank() && price == null){
             return findByCategory(category);
+            // Existe name
+        } else if(!name.isBlank() && category.isBlank() && price == null){
+            return containsName(name);
+            // Existe price
+        } else if(price != null && category.isBlank() && name.isBlank()){
+            return findByPrice(price);
+            // Existe category y name
+        } else if(!category.isBlank() && !name.isBlank() && price == null){
+            return containsNameAndCategory(name, category);
+            // Existe category y price
+        } else if(!category.isBlank() && name.isBlank() && price != null) {
+            return findByCategoryAndPrice(category, price);
+            // Existe name y price
+        } else if(category.isBlank() && !name.isBlank() && price != null){
+            return findByNameAndPrice(name, price);
+        } else if (price != null && !category.isBlank() && !name.isBlank()){
+            return findByCategoryAndNameAndPrice(category, name, price);
         }
+
+        return findAll();
     }
 
     @Override
@@ -31,8 +49,42 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Set<Product> findByCategory(String category) {
-        Set<Product> products = productRepository.findByCategory(category);
-        return products;
+        return productRepository.findByCategory(category);
+    }
+
+    @Override
+    public Set<Product> findByCategoryAndNameAndPrice(String category, String name, Float price) {
+        return productRepository.findByCategoryAndNameAndPrice(category, name, price);
+    }
+
+    @Override
+    public Set<Product> findByOnSale(boolean onSale) {
+        return productRepository.findByOnSale(onSale);
+    }
+
+    @Override
+    public Set<Product> findByPrice(float price) {
+        return productRepository.findByPrice(price);
+    }
+
+    @Override
+    public Set<Product> findByCategoryAndName(String category, String name) {
+        return productRepository.findByCategoryAndName(category, name);
+    }
+
+    @Override
+    public Set<Product> findByCategoryAndPrice(String category, Float price) {
+        return productRepository.findByCategoryAndPrice(category, price);
+    }
+
+    @Override
+    public Set<Product> findByNameAndPrice(String name, Float price) {
+        return productRepository.findByNameAndPrice(name, price);
+    }
+
+    @Override
+    public Set<Product> findByName(String name) {
+        return productRepository.findByName(name);
     }
 
     @Override
@@ -58,5 +110,15 @@ public class ProductServiceImpl implements ProductService{
         productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public Set<Product> containsName(String name) {
+        return productRepository.getProducts(name);
+    }
+
+    @Override
+    public Set<Product> containsNameAndCategory(String name, String category) {
+        return productRepository.getProductsByNameAndCategory(name, category);
     }
 }

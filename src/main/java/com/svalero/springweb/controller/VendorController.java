@@ -1,9 +1,8 @@
 package com.svalero.springweb.controller;
 
 import com.svalero.springweb.domain.Vendor;
-import com.svalero.springweb.exception.ProductNotFoundException;
 import com.svalero.springweb.exception.VendorNotFoundException;
-import com.svalero.springweb.service.VendorService;
+import com.svalero.springweb.service.vendor.VendorService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +17,6 @@ import java.util.Set;
 
 @RestController
 @Tag(name = "Vendors", description = "Listado de vendedores/as")
-
 public class VendorController {
 
     private final Logger logger = LoggerFactory.getLogger(VendorController.class);

@@ -44,4 +44,9 @@ public class Vendor {
     @Schema(description = "Número de contacto del vendedor/a", example = "123456789")
     @Column
     private int phone;
+
+    @Schema(description = "Itentificador de la tienda a la que pertenece el vendedor/a", example = "1")
+    @ManyToOne
+    @JoinColumn(name = "shop_id")   // Hace referencia al campo "shop_id" de la tabla "vendors"
+    private Shop shop;
 }

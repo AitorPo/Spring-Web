@@ -18,7 +18,7 @@ public class Product {
     @Schema(description = "Clave identificativa del producto", example = "1", required = true)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Schema(description = "Nombre comercial del producto", example = "Coca-Cola", required = true)
     @Column
@@ -41,8 +41,8 @@ public class Product {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime createdAt;
 
-    @Schema(description = "Disponibilidad del producto", example = "true", defaultValue = "0")
-    @Column(name = "in_stock")
-    private boolean inStock;
+    @Schema(description = "Indica si el producto está en oferta o no", example = "true", defaultValue = "0")
+    @Column(name = "on_sale")
+    private boolean onSale;
 
 }

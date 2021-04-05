@@ -1,4 +1,4 @@
-package com.svalero.springweb.service;
+package com.svalero.springweb.service.order;
 
 import com.svalero.springweb.domain.Order;
 import com.svalero.springweb.domain.dto.OrderDTO;

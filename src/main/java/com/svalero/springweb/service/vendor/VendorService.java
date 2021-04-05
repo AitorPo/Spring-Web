@@ -1,4 +1,4 @@
-package com.svalero.springweb.service;
+package com.svalero.springweb.service.vendor;
 
 import com.svalero.springweb.domain.Vendor;
 

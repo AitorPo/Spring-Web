@@ -29,4 +29,7 @@ public class OrderDTO {
 
     @Schema(description = "Apellido del/la vendedor/a que ha realizado la operación", example = "Sánchez")
     private String vendorSurname;
+
+    @Schema(description = "Nombre de la tienda en la que se ha generado el pedido", example = "El Corte Inglés")
+    private String shopName;
 }

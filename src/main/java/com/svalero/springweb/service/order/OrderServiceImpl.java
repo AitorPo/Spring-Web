@@ -1,4 +1,4 @@
-package com.svalero.springweb.service;
+package com.svalero.springweb.service.order;
 
 import com.svalero.springweb.domain.Order;
 import com.svalero.springweb.domain.OrderDetail;
@@ -12,7 +12,6 @@ import com.svalero.springweb.repository.VendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
@@ -48,16 +47,20 @@ public class OrderServiceImpl implements OrderService{
         newOrder.setDate(LocalDateTime.now());
         newOrder.setPrice(orderDTO.getPrice());
         newOrder.setVendor(vendor);
+        newOrder.setShipped(false);
+
 
         // Hasta que no hacemos .save el pedido no está introducido en nuestra BD y por tanto no tiene Id ni existe
         newOrder = orderRepository.save(newOrder);
 
         for (String productName : orderDTO.getProducts()) {
-            Product product = productRepository.findByName(productName);
+            Product product = (Product) productRepository.findByName(productName);
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.setPrice(product.getPrice());
             orderDetail.setQuantity(1);
             orderDetail.setOrder(newOrder);
+            orderDetail.setByCard(false);
+            orderDetail.setCreatedAt(LocalDateTime.now());
             orderDetail.setProduct(product);
             newOrder.addDetail(orderDetail);
             orderDetailRepository.save(orderDetail);
