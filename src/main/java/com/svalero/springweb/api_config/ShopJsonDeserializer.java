@@ -5,9 +5,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.svalero.springweb.domain.Shop;
+import com.svalero.springweb.exception.ShopNotFoundException;
 import com.svalero.springweb.repository.ShopRepository;
 
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  * Clase con la que podemos asignar un objeto Shop a través del shop_id al crear un nuevo objeto Vendor
@@ -25,7 +27,6 @@ public class ShopJsonDeserializer extends JsonDeserializer<Shop> {
         if (jsonParser == null) return null;
 
         long id = Long.parseLong(jsonParser.getText());
-
         Shop shop = shopRepository.getShop(id);
         return shop;
     }

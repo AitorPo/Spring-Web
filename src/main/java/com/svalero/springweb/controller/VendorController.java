@@ -1,7 +1,8 @@
 package com.svalero.springweb.controller;
 
+import com.svalero.springweb.domain.Shop;
 import com.svalero.springweb.domain.Vendor;
-import com.svalero.springweb.exception.ProductNotFoundException;
+import com.svalero.springweb.exception.ShopNotFoundException;
 import com.svalero.springweb.exception.VendorNotFoundException;
 import com.svalero.springweb.service.vendor.VendorService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -58,12 +59,16 @@ public class VendorController {
 
     @Operation(summary = "Añade un vendedor/a a la BD")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Vendedor/a añadido/a", content = @Content(schema = @Schema(implementation = Vendor.class)))
+            @ApiResponse(responseCode = "201", description = "Vendedor/a añadido/a", content = @Content(schema = @Schema(implementation = Vendor.class))),
+            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Shop.class)))
     })
     @PostMapping(value = "/vendors", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<Vendor> addVendor(@RequestBody Vendor vendor){
+    public ResponseEntity addVendor(@RequestBody Vendor vendor){
+        if (vendor.getShop() == null) {
+            return handlerShopException(new ShopNotFoundException("Tienda no encontrada"));
+        }
         Vendor newVendor = vendorService.addVendor(vendor);
-        return new ResponseEntity<>(newVendor, HttpStatus.OK);
+        return new ResponseEntity(newVendor, HttpStatus.OK);
     }
 
     @Operation(summary = "Actualiza la información de un vendedor/a")
@@ -106,6 +111,15 @@ public class VendorController {
     public ResponseEntity<Response> handlerException(VendorNotFoundException vnfe){
         Response response = Response.errorResponse(Response.NOT_FOUND, vnfe.getMessage());
         logger.error(vnfe.getMessage(), vnfe);
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ShopNotFoundException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<Response> handlerShopException(ShopNotFoundException snfe){
+        Response response = Response.errorResponse(Response.NOT_FOUND, snfe.getMessage());
+        logger.error(snfe.getMessage(), snfe);
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 }

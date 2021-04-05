@@ -1,6 +1,7 @@
 package com.svalero.springweb.service.vendor;
 
 import com.svalero.springweb.domain.Vendor;
+import com.svalero.springweb.exception.ShopNotFoundException;
 import com.svalero.springweb.exception.VendorNotFoundException;
 import com.svalero.springweb.repository.VendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,10 @@ public class VendorServiceImpl implements VendorService{
 
     @Override
     public Vendor addVendor(Vendor vendor) {
-        return vendorRepository.save(vendor);
+        if (vendor.getShop() != null)
+            return vendorRepository.save(vendor);
+        else
+            return null;
     }
 
     @Override
