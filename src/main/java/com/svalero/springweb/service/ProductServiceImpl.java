@@ -121,4 +121,10 @@ public class ProductServiceImpl implements ProductService{
     public Set<Product> containsNameAndCategory(String name, String category) {
         return productRepository.getProductsByNameAndCategory(name, category);
     }
+
+    @Override
+    public Product getProduct(long id) {
+        return productRepository.getProduct(id);
+    }
+
 }

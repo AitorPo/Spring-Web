@@ -101,16 +101,10 @@ public class ShopController {
         return new ResponseEntity<>(Response.noErrorResponse(), HttpStatus.OK);
     }
 
-    /*@PatchMapping(value = "/shops/{id}", produces = "application/json", consumes = "text/plain")
-    public ResponseEntity<Shop> patchShopName(@PathVariable("id") long id, @RequestBody String newValue){
-        Shop shop = shopService.patchShopName(id, newValue);
-        return new ResponseEntity<>(shop, HttpStatus.OK);
-    }*/
-
     @Operation(summary = "Actualiza campos determinados de una tienda a partir de su id. Se pueden 'parchear' varios campos a la vez")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Tienda 'parcheada' correctamente", content = @Content(schema = @Schema(implementation = Shop.class))),
-            @ApiResponse(responseCode = "404", description = "tienda no encontrada", content = @Content(schema = @Schema(implementation = Shop.class)))
+            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Shop.class)))
     })
     @PatchMapping(value = "/shops/{id}")
     public ResponseEntity patchShop(@PathVariable("id") long id, @RequestBody Map<Object, Object> fields){
@@ -124,7 +118,7 @@ public class ShopController {
             field.setAccessible(true);
             ReflectionUtils.setField(field, shop, v);
         });
-        shopService.patchShop(shop);
+        shopService.modifyShop(id, shop);
         return new ResponseEntity(shop, HttpStatus.OK);
     }
 

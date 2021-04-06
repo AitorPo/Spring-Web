@@ -1,7 +1,9 @@
 package com.svalero.springweb.controller;
 
 import com.svalero.springweb.domain.Product;
+import com.svalero.springweb.domain.Vendor;
 import com.svalero.springweb.exception.ProductNotFoundException;
+import com.svalero.springweb.exception.VendorNotFoundException;
 import com.svalero.springweb.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -15,8 +17,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Field;
+import java.util.Map;
 import java.util.Set;
 
 @RestController
@@ -103,33 +108,27 @@ public class ProductController {
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
-
+    @Operation(summary = "Actualiza campos determinados de un producto a partir de su id. Se pueden 'parchear' varios campos a la vez")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Producto 'parcheado' correctamente", content = @Content(schema = @Schema(implementation = Product.class))),
+            @ApiResponse(responseCode = "404", description = "Producto no encontrado", content = @Content(schema = @Schema(implementation = Product.class)))
+    })
     @PatchMapping(value = "/products/{id}")
-    public ResponseEntity<Product> patchProduct(@PathVariable("id") long id, @RequestBody Product patchedProduct){
-        Product product = productService.modifyProduct(id, patchedProduct);
-        return new ResponseEntity<>(product, HttpStatus.OK);
+    public ResponseEntity patchProduct(@PathVariable("id") long id, @RequestBody Map<Object, Object> fields){
+        Product product = productService.getProduct(id);
+        if (product == null){
+            return handlerException(new ProductNotFoundException(id));
+        }
+
+        fields.forEach((k, v) ->{
+            Field field = ReflectionUtils.findField(Product.class, (String) k);
+            field.setAccessible(true);
+            ReflectionUtils.setField(field, product, v);
+        });
+        productService.modifyProduct(id, product);
+        return new ResponseEntity(product, HttpStatus.OK);
     }
 
-    /*@PatchMapping(value = "/products/{id}", consumes = "application/json-patch+json")
-    public ResponseEntity<Product> patchProduct(@PathVariable("id") long id, @RequestBody JsonPatch patch){
-        try {
-            Product product = productService.findById(id)
-                    .orElseThrow(() -> new ProductNotFoundException(id));
-            Product patchedProduct = applyPatchToProduct(patch, product);
-            productService.modifyProduct(id, patchedProduct);
-            return new ResponseEntity<>(patchedProduct, HttpStatus.OK);
-        } catch (JsonPatchException | JsonProcessingException e) {
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-    private Product applyPatchToProduct(JsonPatch patch, Product targetProduct) throws JsonPatchException, JsonProcessingException {
-        ObjectMapper objectMapper = null;
-        assert false;
-        JsonNode patched = patch.apply(objectMapper.convertValue(targetProduct, JsonNode.class));
-        return objectMapper.treeToValue(patched, Product.class);
-    }
-*/
     @Operation(summary = "Elimina un producto existente de la BD")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Producto eliminado correctamente", content = @Content(schema = @Schema(implementation = Product.class))),

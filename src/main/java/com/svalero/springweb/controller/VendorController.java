@@ -95,7 +95,7 @@ public class VendorController {
             @ApiResponse(responseCode = "404", description = "Vendedor no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class))),
     })
     @DeleteMapping(value = "/vendors/{id}", produces = "application/json")
-    public ResponseEntity<Response> deleteVendor(@PathVariable long id){
+    public ResponseEntity<Response> deleteVendor(@PathVariable("id") long id){
         vendorService.deleteVendor(id);
         return new ResponseEntity<>(Response.noErrorResponse(), HttpStatus.OK);
     }

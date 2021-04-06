@@ -20,7 +20,7 @@ public class Order {
     @Schema(description = "Identificador de cada pedido", example = "1")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Schema(description = "Código alfanumérico generado aleatoriamente en cada pedido", example = "asd5-asd4...")
     @Column
@@ -34,7 +34,7 @@ public class Order {
     @Schema(description = "Precio del pedido", example = "125.05", defaultValue = "0.00")
     @Column
     @Min(value = 0)
-    private float price;
+    private Float price;
 
     @Schema(description = "Estado del pedido: enviado o no en caso de que sea a domicilio", example = "false", defaultValue = "0")
     @Column

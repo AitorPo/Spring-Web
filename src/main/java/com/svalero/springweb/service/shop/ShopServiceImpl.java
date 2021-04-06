@@ -54,13 +54,4 @@ public class ShopServiceImpl implements ShopService{
         return shopRepository.getShop(id);
     }
 
-    @Override
-    public Shop patchShop(Shop newShop) {
-        Shop shop = shopRepository.findById(newShop.getId())
-                .orElseThrow(() -> new ShopNotFoundException(newShop.getId()));
-        newShop.setId(shop.getId());
-        return shopRepository.save(newShop);
-    }
-
-
 }

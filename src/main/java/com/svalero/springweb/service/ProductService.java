@@ -26,4 +26,5 @@ public interface ProductService {
     void deleteProduct(long id);
     Set<Product> containsName(String name);
     Set<Product> containsNameAndCategory(String name, String category);
+    Product getProduct(long id);
 }

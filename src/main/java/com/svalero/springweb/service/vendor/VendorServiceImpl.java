@@ -54,11 +54,4 @@ public class VendorServiceImpl implements VendorService{
         return vendorRepository.getVendor(id);
     }
 
-    @Override
-    public Vendor patchVendor(Vendor newVendor) {
-        Vendor vendor = vendorRepository.findById(newVendor.getId())
-                .orElseThrow(() -> new VendorNotFoundException(newVendor.getId()));
-        newVendor.setId(vendor.getId());
-        return vendorRepository.save(newVendor);
-    }
 }

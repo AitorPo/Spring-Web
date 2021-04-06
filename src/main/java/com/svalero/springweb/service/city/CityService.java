@@ -9,4 +9,8 @@ public interface CityService {
     Set<City> findAll();
     Set<City> findByName(String name);
     Optional<City> findById(long id);
+    City addCity(City city);
+    City modifyCity(long id, City newCity);
+    void deleteCity(long id);
+    City getCity(long id);
 }
