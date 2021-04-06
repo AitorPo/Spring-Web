@@ -17,8 +17,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Field;
+import java.util.Map;
 import java.util.Set;
 
 @RestController
@@ -97,10 +100,25 @@ public class VendorController {
         return new ResponseEntity<>(Response.noErrorResponse(), HttpStatus.OK);
     }
 
-    @PatchMapping(value = "/vendors/{id}", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<Vendor> patchVendor(@PathVariable("id") long id, @RequestBody Vendor newVendor){
-        Vendor vendor = vendorService.modifyVendor(id, newVendor);
-        return new ResponseEntity<>(vendor, HttpStatus.OK);
+    @Operation(summary = "Actualiza campos determinados de un vendedor/a a partir de su id. Se pueden 'parchear' varios campos a la vez")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Vendedor/a 'parcheado/a' correctamente", content = @Content(schema = @Schema(implementation = Vendor.class))),
+            @ApiResponse(responseCode = "404", description = "Vendedor/a no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class)))
+    })
+    @PatchMapping(value = "/vendors/{id}")
+    public ResponseEntity patchVendor(@PathVariable("id") long id, @RequestBody Map<Object, Object> fields){
+        Vendor vendor = vendorService.getVendor(id);
+        if (vendor == null){
+            return handlerException(new VendorNotFoundException(id));
+        }
+
+        fields.forEach((k, v) ->{
+            Field field = ReflectionUtils.findField(Vendor.class, (String) k);
+            field.setAccessible(true);
+            ReflectionUtils.setField(field, vendor, v);
+        });
+        vendorService.modifyVendor(id, vendor);
+        return new ResponseEntity(vendor, HttpStatus.OK);
     }
 
     /**

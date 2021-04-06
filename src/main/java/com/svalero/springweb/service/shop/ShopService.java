@@ -11,5 +11,6 @@ public interface ShopService {
     Shop addShop(Shop shop);
     Shop modifyShop(long id, Shop newShop);
     void deleteShop(long id);
-    Shop patchShopName(long id, String newValue);
+    Shop getShop(long id);
+    Shop patchShop(Shop newShop);
 }

@@ -36,7 +36,7 @@ public class VendorServiceImpl implements VendorService{
 
     @Override
     public Vendor modifyVendor(long id, Vendor newVendor) {
-        Vendor vendor =vendorRepository.findById(id)
+        Vendor vendor = vendorRepository.findById(id)
                 .orElseThrow(() -> new VendorNotFoundException(id));
         newVendor.setId(vendor.getId());
         return vendorRepository.save(newVendor);
@@ -47,5 +47,18 @@ public class VendorServiceImpl implements VendorService{
         vendorRepository.findById(id)
                 .orElseThrow(() -> new VendorNotFoundException(id));
         vendorRepository.deleteById(id);
+    }
+
+    @Override
+    public Vendor getVendor(long id) {
+        return vendorRepository.getVendor(id);
+    }
+
+    @Override
+    public Vendor patchVendor(Vendor newVendor) {
+        Vendor vendor = vendorRepository.findById(newVendor.getId())
+                .orElseThrow(() -> new VendorNotFoundException(newVendor.getId()));
+        newVendor.setId(vendor.getId());
+        return vendorRepository.save(newVendor);
     }
 }

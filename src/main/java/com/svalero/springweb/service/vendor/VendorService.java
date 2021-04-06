@@ -13,4 +13,6 @@ public interface VendorService {
     Vendor addVendor(Vendor vendor);
     Vendor modifyVendor(long id, Vendor newVendor);
     void deleteVendor(long id);
+    Vendor getVendor(long id);
+    Vendor patchVendor(Vendor vendor);
 }

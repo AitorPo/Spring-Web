@@ -48,12 +48,18 @@ public class ShopServiceImpl implements ShopService{
         shopRepository.deleteById(id);
     }
 
+
     @Override
-    public Shop patchShopName(long id, String newValue) {
-        Shop shop = shopRepository.findById(id)
-                .orElseThrow(() -> new ShopNotFoundException(id));
-        shop.setName(newValue.trim());
-        return shopRepository.save(shop);
+    public Shop getShop(long id) {
+        return shopRepository.getShop(id);
+    }
+
+    @Override
+    public Shop patchShop(Shop newShop) {
+        Shop shop = shopRepository.findById(newShop.getId())
+                .orElseThrow(() -> new ShopNotFoundException(newShop.getId()));
+        newShop.setId(shop.getId());
+        return shopRepository.save(newShop);
     }
 
 
