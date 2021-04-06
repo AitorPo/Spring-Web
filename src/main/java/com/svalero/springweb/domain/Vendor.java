@@ -1,18 +1,15 @@
 package com.svalero.springweb.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.svalero.springweb.api_config.ShopJsonDeserializer;
-import com.svalero.springweb.exception.ShopNotFoundException;
+import com.svalero.springweb.deserializer.ShopJsonDeserializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.Optional;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -31,8 +28,8 @@ public class Vendor {
 
     @Schema(description = "Fecha de contratación del vendedor/a", example = "04-04-2021")
     @Column(name = "hired_at")
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    private LocalDateTime hiredAt;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate hiredAt;
 
     @Schema(description = "Nombre del vendedor/a", example = "Aitor")
     @Column

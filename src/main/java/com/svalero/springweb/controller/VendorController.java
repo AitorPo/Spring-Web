@@ -68,16 +68,20 @@ public class VendorController {
             return handlerShopException(new ShopNotFoundException("Tienda no encontrada"));
         }
         Vendor newVendor = vendorService.addVendor(vendor);
-        return new ResponseEntity(newVendor, HttpStatus.OK);
+        return new ResponseEntity(newVendor, HttpStatus.CREATED);
     }
 
     @Operation(summary = "Actualiza la información de un vendedor/a")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Vendedor actualizado/a correctamente", content = @Content(schema = @Schema(implementation = Vendor.class))),
-            @ApiResponse(responseCode = "404", description = "Vendedor no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class)))
+            @ApiResponse(responseCode = "404", description = "Vendedor no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class))),
+            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Shop.class)))
     })
     @PutMapping(value = "/vendors/{id}", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<Vendor> updateVendor(@PathVariable("id") long id, @RequestBody Vendor newVendor){
+    public ResponseEntity updateVendor(@PathVariable("id") long id, @RequestBody Vendor newVendor){
+        if (newVendor.getShop() == null){
+            return handlerShopException(new ShopNotFoundException("Tienda no encontrada"));
+        }
         Vendor vendor = vendorService.modifyVendor(id, newVendor);
         return new ResponseEntity<>(vendor, HttpStatus.OK);
     }
@@ -85,7 +89,7 @@ public class VendorController {
     @Operation(summary = "Elimina un vendedor/a de la BD a través del id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Vendedor eliminado/a correctamente", content = @Content(schema = @Schema(implementation = Vendor.class))),
-            @ApiResponse(responseCode = "404", description = "Vendedor no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class)))
+            @ApiResponse(responseCode = "404", description = "Vendedor no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class))),
     })
     @DeleteMapping(value = "/vendors/{id}", produces = "application/json")
     public ResponseEntity<Response> deleteVendor(@PathVariable long id){

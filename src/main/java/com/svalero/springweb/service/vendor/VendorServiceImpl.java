@@ -30,8 +30,8 @@ public class VendorServiceImpl implements VendorService{
     public Vendor addVendor(Vendor vendor) {
         if (vendor.getShop() != null)
             return vendorRepository.save(vendor);
-        else
-            return null;
+
+        return null;
     }
 
     @Override

@@ -5,5 +5,5 @@ public class ShopNotFoundException extends RuntimeException{
 
     public ShopNotFoundException(String message) { super(message); }
 
-    public ShopNotFoundException(long id) { super("Shop not found - id: " + id); }
+    public ShopNotFoundException(long id) { super("Tienda con id: " + id + " no encontrada"); }
 }

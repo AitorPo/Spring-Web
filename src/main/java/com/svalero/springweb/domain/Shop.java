@@ -1,6 +1,8 @@
 package com.svalero.springweb.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.svalero.springweb.deserializer.CityJsonDeserializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -44,6 +46,7 @@ public class Shop {
     private String adress;
 
     @Schema(description = "Identificativo de la ciudad en la que se encuentra la tienda", example = "1")
+    @JsonDeserialize(using = CityJsonDeserializer.class)
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;

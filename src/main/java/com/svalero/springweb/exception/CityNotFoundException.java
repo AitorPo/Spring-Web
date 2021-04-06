@@ -5,5 +5,5 @@ public class CityNotFoundException extends RuntimeException{
 
     public CityNotFoundException(String message) { super(message); }
 
-    public CityNotFoundException(long id) { super("City not found - id: " + id); }
+    public CityNotFoundException(long id) { super("Ciudad con id: " + id + " no encontrada"); }
 }

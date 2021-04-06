@@ -1,6 +1,7 @@
 package com.svalero.springweb.service.shop;
 
 import com.svalero.springweb.domain.Shop;
+import com.svalero.springweb.exception.ShopNotFoundException;
 import com.svalero.springweb.repository.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +26,34 @@ public class ShopServiceImpl implements ShopService{
     }
 
     @Override
-    public Shop getShop(long id) {
+    public Shop addShop(Shop shop) {
+        if (shop.getCity() != null)
+            return shopRepository.save(shop);
+
         return null;
+    }
+
+    @Override
+    public Shop modifyShop(long id, Shop newShop) {
+        Shop shop = shopRepository.findById(id)
+                .orElseThrow(() -> new ShopNotFoundException(id));
+        newShop.setId(shop.getId());
+        return shopRepository.save(newShop);
+    }
+
+    @Override
+    public void deleteShop(long id) {
+        shopRepository.findById(id)
+                .orElseThrow(() -> new ShopNotFoundException(id));
+        shopRepository.deleteById(id);
+    }
+
+    @Override
+    public Shop patchShopName(long id, String newValue) {
+        Shop shop = shopRepository.findById(id)
+                .orElseThrow(() -> new ShopNotFoundException(id));
+        shop.setName(newValue.trim());
+        return shopRepository.save(shop);
     }
 
 

@@ -1,4 +1,4 @@
-package com.svalero.springweb.api_config;
+package com.svalero.springweb.deserializer;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

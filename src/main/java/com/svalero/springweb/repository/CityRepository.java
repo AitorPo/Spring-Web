@@ -1,7 +1,9 @@
 package com.svalero.springweb.repository;
 
 import com.svalero.springweb.domain.City;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Set;
@@ -10,4 +12,7 @@ import java.util.Set;
 public interface CityRepository extends CrudRepository<City, Long> {
     Set<City> findAll();
     Set<City> findByName(String name);
+
+    @Query("FROM cities WHERE id = :id")
+    City getCity(@Param("id") long id);
 }
