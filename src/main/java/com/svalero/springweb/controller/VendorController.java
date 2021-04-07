@@ -4,6 +4,7 @@ import com.svalero.springweb.domain.Shop;
 import com.svalero.springweb.domain.Vendor;
 import com.svalero.springweb.exception.ShopNotFoundException;
 import com.svalero.springweb.exception.VendorNotFoundException;
+import com.svalero.springweb.service.shop.ShopService;
 import com.svalero.springweb.service.vendor.VendorService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Field;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 @RestController
@@ -32,6 +34,9 @@ public class VendorController {
 
     @Autowired
     private VendorService vendorService;
+
+    @Autowired
+    private ShopService shopService;
 
     @Operation(summary = "Lista todos los vendeodres/as de la BD")
     @ApiResponses(value = {
@@ -71,7 +76,7 @@ public class VendorController {
             return handlerShopException(new ShopNotFoundException("Tienda no encontrada"));
         }
         Vendor newVendor = vendorService.addVendor(vendor);
-        return new ResponseEntity(newVendor, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newVendor);
     }
 
     @Operation(summary = "Actualiza la información de un vendedor/a")
@@ -105,7 +110,7 @@ public class VendorController {
             @ApiResponse(responseCode = "200", description = "Vendedor/a 'parcheado/a' correctamente", content = @Content(schema = @Schema(implementation = Vendor.class))),
             @ApiResponse(responseCode = "404", description = "Vendedor/a no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class)))
     })
-    @PatchMapping(value = "/vendors/{id}")
+    @PatchMapping(value = "/vendors/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity patchVendor(@PathVariable("id") long id, @RequestBody Map<Object, Object> fields){
         Vendor vendor = vendorService.getVendor(id);
         if (vendor == null){
@@ -120,6 +125,22 @@ public class VendorController {
         vendorService.modifyVendor(id, vendor);
         return new ResponseEntity(vendor, HttpStatus.OK);
     }
+
+    /*@Operation(summary = "Hace patch sobre el json Shop del vendedor/a")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Devuelve el JSON del vendedor/a 'parcheado'", content = @Content(schema = @Schema(implementation = Vendor.class))),
+            @ApiResponse(responseCode = "404", description = "Vendedor/a no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class))),
+            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Shop.class)))
+    })
+    @PatchMapping(value = "/vendors/{id}")
+    public ResponseEntity patchVendorShop(@PathVariable("id") long vendorId, @RequestBody Map<Object, Object> fields){
+        Vendor vendor = vendorService.findById(vendorId).orElseThrow(() -> new VendorNotFoundException(vendorId));
+        Shop shop = shopService.findById(vendor.getShop().getId()).orElseThrow(() -> new ShopNotFoundException(vendor.getShop().getId()));
+        logger.info(shop.toString());
+        fields.put("shop", shop);
+        vendorService.modifyVendor(vendorId, vendor);
+        return new ResponseEntity<>(vendor, HttpStatus.OK);
+    }*/
 
     /**
      * Método de controla el error 404 Not Found

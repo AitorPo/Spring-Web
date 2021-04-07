@@ -6,8 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Respuesta genérica cuando lo que hay que responder no es información
- * sino que es la confirmación de que una operación se ha ejecutado correctamente o
+ * Respuesta genérica cuando lo que hay que devolver no es información
+ * sino la confirmación que una operación se ha ejecutado correctamente o
  * bien un error porque algo no ha ocurrido como se esperaba
  */
 

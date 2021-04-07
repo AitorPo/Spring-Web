@@ -72,7 +72,7 @@ public class ShopController {
             return handlerShopException(new CityNotFoundException("Ciudad no encontrada"));
         }
         Shop newShop = shopService.addShop(shop);
-        return new ResponseEntity(newShop, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newShop);
     }
 
     @Operation(summary = "Actualiza los datos de una tienda a través de su id")

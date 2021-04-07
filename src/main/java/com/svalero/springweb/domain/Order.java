@@ -1,6 +1,8 @@
 package com.svalero.springweb.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.svalero.springweb.deserializer.VendorJsonDeserializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,13 +36,14 @@ public class Order {
     @Schema(description = "Precio del pedido", example = "125.05", defaultValue = "0.00")
     @Column
     @Min(value = 0)
-    private Float price;
+    private float price;
 
     @Schema(description = "Estado del pedido: enviado o no en caso de que sea a domicilio", example = "false", defaultValue = "0")
     @Column
     private boolean shipped;
 
     @Schema(description = "Identificador del vendedor/a que ha expedido la factura", example = "1", required = true)
+    @JsonDeserialize(using = VendorJsonDeserializer.class)
     @ManyToOne
     @JoinColumn(name = "vendor_id")
     private Vendor vendor;

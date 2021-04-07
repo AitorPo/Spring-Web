@@ -27,8 +27,8 @@ public class OrderDTO {
     @Schema(description = "Cantidad final a abonar una vez aplicados los impuestos", example = "140")
     private float price;
 
-    @Schema(description = "Apellido del/la vendedor/a que ha realizado la operación", example = "Sánchez")
-    private String vendorSurname;
+    @Schema(description = "Identificador del vendedor/a que ha emitida la factura. No se usa el nombre u apellido por privacidad", example = "1")
+    private long vendorId;
 
     @Schema(description = "Nombre de la tienda en la que se ha generado el pedido", example = "El Corte Inglés")
     private String shopName;

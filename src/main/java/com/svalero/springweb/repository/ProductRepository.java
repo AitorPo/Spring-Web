@@ -23,6 +23,9 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     Set<Product> findByCategoryAndPrice(String category, float price);
     Set<Product> findByNameAndPrice(String name, float price);
 
+    @Query("FROM products WHERE name = :name")
+    Product getProductByName(@Param("name") String name);
+
     @Query("FROM products WHERE id = :id")
     Product getProduct(@Param("id") long id);
 

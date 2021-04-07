@@ -1,8 +1,10 @@
 package com.svalero.springweb.service.vendor;
 
+import com.svalero.springweb.domain.Shop;
 import com.svalero.springweb.domain.Vendor;
 import com.svalero.springweb.exception.ShopNotFoundException;
 import com.svalero.springweb.exception.VendorNotFoundException;
+import com.svalero.springweb.repository.ShopRepository;
 import com.svalero.springweb.repository.VendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,9 @@ public class VendorServiceImpl implements VendorService{
 
     @Autowired
     private VendorRepository vendorRepository;
+
+    @Autowired
+    private ShopRepository shopRepository;
 
     @Override
     public Set<Vendor> findAll() {
@@ -52,6 +57,19 @@ public class VendorServiceImpl implements VendorService{
     @Override
     public Vendor getVendor(long id) {
         return vendorRepository.getVendor(id);
+    }
+
+    @Override
+    public Vendor patchShop(Shop shop, Vendor newVendor) {
+        Shop finalShop = shop;
+        shop = shopRepository.findById(shop.getId()).orElseThrow(() -> new ShopNotFoundException(finalShop.getId()));
+        newVendor.setShop(shop);
+        return vendorRepository.save(newVendor);
+    }
+
+    @Override
+    public Vendor findBySurname(String surname) {
+        return vendorRepository.findBySurname(surname);
     }
 
 }

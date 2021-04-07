@@ -5,6 +5,8 @@ import com.svalero.springweb.domain.OrderDetail;
 import com.svalero.springweb.domain.Product;
 import com.svalero.springweb.domain.Vendor;
 import com.svalero.springweb.domain.dto.OrderDTO;
+import com.svalero.springweb.exception.OrderNotFoundException;
+import com.svalero.springweb.exception.VendorNotFoundException;
 import com.svalero.springweb.repository.OrderDetailRepository;
 import com.svalero.springweb.repository.OrderRepository;
 import com.svalero.springweb.repository.ProductRepository;
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
@@ -34,14 +37,14 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public Set<Order> findAll() {
-        return orderRepository.findAll();
+        return orderRepository.getAllOrders();
     }
 
     // Utilizamos el DTO para crear un pedido en nuestra BD
     @Override
     public Order addOrder(OrderDTO orderDTO) {
         String number = UUID.randomUUID().toString();
-        Vendor vendor = vendorRepository.findBySurname(orderDTO.getVendorSurname());
+        Vendor vendor = vendorRepository.getVendor(orderDTO.getVendorId());
         Order newOrder = new Order();
         newOrder.setNumber(number);
         newOrder.setDate(LocalDateTime.now());
@@ -54,9 +57,10 @@ public class OrderServiceImpl implements OrderService{
         newOrder = orderRepository.save(newOrder);
 
         for (String productName : orderDTO.getProducts()) {
-            Product product = (Product) productRepository.findByName(productName);
+            Product product = productRepository.getProductByName(productName);
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.setPrice(product.getPrice());
+            orderDetail.setEstablishment(vendor.getShop().getName());
             orderDetail.setQuantity(1);
             orderDetail.setOrder(newOrder);
             orderDetail.setByCard(false);
@@ -67,4 +71,31 @@ public class OrderServiceImpl implements OrderService{
         }
         return newOrder;
     }
+
+    @Override
+    public Order modifyOrder(long id, Order newOrder) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new OrderNotFoundException(id));
+        newOrder.setId(order.getId());
+        return orderRepository.save(newOrder);
+    }
+
+    @Override
+    public void deleteOrder(long id) {
+        orderRepository.findById(id)
+                .orElseThrow(() -> new OrderNotFoundException(id));
+        orderRepository.deleteById(id);
+    }
+
+    @Override
+    public Order getOrder(long id) {
+        return orderRepository.getOrder(id);
+    }
+
+    @Override
+    public Optional<Order> findById(long id) {
+        return orderRepository.findById(id);
+    }
+
+
 }

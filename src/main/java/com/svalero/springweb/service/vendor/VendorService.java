@@ -1,5 +1,6 @@
 package com.svalero.springweb.service.vendor;
 
+import com.svalero.springweb.domain.Shop;
 import com.svalero.springweb.domain.Vendor;
 
 import java.util.Optional;
@@ -14,4 +15,6 @@ public interface VendorService {
     Vendor modifyVendor(long id, Vendor newVendor);
     void deleteVendor(long id);
     Vendor getVendor(long id);
+    Vendor patchShop(Shop shop, Vendor newVendor);
+    Vendor findBySurname(String surname);
 }
