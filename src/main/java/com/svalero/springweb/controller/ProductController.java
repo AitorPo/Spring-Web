@@ -21,6 +21,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -55,6 +56,21 @@ public class ProductController {
 
         logger.info("Fin de getProducts()");
         return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+
+    @Operation(summary = "Uno de los tres endpoints extra. Devuelve la suma del precio de todos los productos de la BD o de todos los productos por categoría")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Devuelve la suma de los productos", content = @Content(schema = @Schema(implementation = Product.class))),
+            @ApiResponse(responseCode = "404", description = "JSON con mensaje: Categoría no encontrada", content = @Content(schema = @Schema(implementation = Product.class)))
+    })
+    @GetMapping(value = "/products/sum", produces = "application/json")
+    public ResponseEntity sumAllProducts(@RequestParam(value = "category", defaultValue = "") String category){
+        Object products = productService.sumProducts(category);
+
+        Map<String, Double> sum = new HashMap<>();
+        sum.put("sum", (Double) products);
+
+        return new ResponseEntity(sum, HttpStatus.OK);
     }
 
     /**
@@ -139,6 +155,8 @@ public class ProductController {
         productService.deleteProduct(id);
         return new ResponseEntity<>(Response.noErrorResponse(), HttpStatus.OK);
     }
+
+
 
     /**
      * Método de controla el error 404 Not Found

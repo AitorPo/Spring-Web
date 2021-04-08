@@ -27,4 +27,5 @@ public interface ProductService {
     Set<Product> containsName(String name);
     Set<Product> containsNameAndCategory(String name, String category);
     Product getProduct(long id);
+    Object sumProducts(String category);
 }

@@ -25,6 +25,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -53,6 +54,24 @@ public class OrderController {
         logger.info("Fin de getOrders()");
 
         return new ResponseEntity<>(orders, HttpStatus.OK);
+    }
+
+    @Operation(summary = "Uno de los endpoints extra. Obtiene el promedio de ventas de un vendedor/a por su id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Devuelve un JSON con la cantidad promedio de venta", content = @Content(schema = @Schema(implementation = Order.class))),
+            @ApiResponse(responseCode = "404", description = "JSON con error: Ese/a vendedor/a no ha realizado ningún pedido", content = @Content(schema = @Schema(implementation = Order.class))),
+            @ApiResponse(responseCode = "404", description = "JSON con error de vendedor/a no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class)))
+    })
+    @GetMapping(value = "/orders/details/average", produces = "application/json")
+    public ResponseEntity getAveragePrice (@RequestParam(value = "vendor_id", defaultValue = "0") long vendorId){
+        vendorService.findById(vendorId).orElseThrow(() -> new VendorNotFoundException(vendorId));
+        orderService.getOrderByVendor(vendorId).orElseThrow(() -> new VendorNotFoundException("Ese/a vendedor/a no ha realizado ningún pedido"));
+        float result = orderService.getAveragePrice(vendorId);
+
+        Map<String, Float> averagePrice = new HashMap<>();
+        averagePrice.put("average_price", result);
+
+        return new ResponseEntity(averagePrice, HttpStatus.OK);
     }
 
     @Operation(summary = "Obtiene los datos de un pedido mediante su id")

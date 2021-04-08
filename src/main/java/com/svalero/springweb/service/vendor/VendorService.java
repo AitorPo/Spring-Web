@@ -3,6 +3,7 @@ package com.svalero.springweb.service.vendor;
 import com.svalero.springweb.domain.Shop;
 import com.svalero.springweb.domain.Vendor;
 
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
@@ -17,4 +18,5 @@ public interface VendorService {
     Vendor getVendor(long id);
     Vendor patchShop(Shop shop, Vendor newVendor);
     Vendor findBySurname(String surname);
+    int countVendors(long id);
 }

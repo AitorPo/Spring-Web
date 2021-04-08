@@ -97,5 +97,17 @@ public class OrderServiceImpl implements OrderService{
         return orderRepository.findById(id);
     }
 
+    @Override
+    public Float getAveragePrice(long vendorId) {
+        if (vendorId == 0)
+            return orderRepository.getAveragePrice();
+        vendorRepository.findById(vendorId). orElseThrow(() -> new VendorNotFoundException(vendorId));
 
+        return orderRepository.getAveragePricePerVendor(vendorId);
+    }
+
+    @Override
+    public Optional<Order> getOrderByVendor(long vendorId) {
+        return orderRepository.getOrderByVendor(vendorId);
+    }
 }

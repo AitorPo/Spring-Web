@@ -14,4 +14,6 @@ public interface OrderService {
     void deleteOrder(long id);
     Order getOrder(long id);
     Optional<Order> findById(long id);
+    Float getAveragePrice(long vendorId);
+    Optional<Order> getOrderByVendor(long vendorId);
 }

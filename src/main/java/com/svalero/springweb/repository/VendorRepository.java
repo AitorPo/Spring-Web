@@ -20,4 +20,7 @@ public interface VendorRepository extends CrudRepository<Vendor, Long> {
 
     @Query("FROM vendors WHERE id = :id")
     Vendor getVendor(@Param("id") long id);
+
+    @Query("SELECT COUNT(*) FROM vendors WHERE shop_id = :shop_id")
+    int countVendors(@Param("shop_id") int shopId);
 }

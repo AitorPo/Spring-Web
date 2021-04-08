@@ -1,5 +1,10 @@
 package com.svalero.springweb.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.fge.jsonpatch.JsonPatch;
+import com.github.fge.jsonpatch.JsonPatchException;
 import com.svalero.springweb.domain.Shop;
 import com.svalero.springweb.domain.Vendor;
 import com.svalero.springweb.exception.ShopNotFoundException;
@@ -22,6 +27,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -50,6 +56,21 @@ public class VendorController {
         vendors = vendorService.findAll();
         logger.info("Fin de getVendors()");
         return new ResponseEntity<>(vendors, HttpStatus.OK);
+    }
+
+    @Operation(summary = "Uno de los endpoints extra. Devuelve la suma de los vendedores de una tienda localizada por id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "JSON con la suma de los vendedores", content = @Content(schema = @Schema(implementation = Vendor.class))),
+            @ApiResponse(responseCode = "404", description = "JSON con mensaje: Tienda no encontrada", content = @Content(schema = @Schema(implementation = Shop.class)))
+    })
+    @GetMapping(value = "/vendors/shop/{id}", produces = "application/json")
+    public ResponseEntity countVendors(@PathVariable("id") long id){
+        int totalVendors = vendorService.countVendors(id);
+
+        Map<String, Integer> countedVendors = new HashMap<>();
+        countedVendors.put("total_vendors", totalVendors);
+
+        return new ResponseEntity(countedVendors, HttpStatus.OK);
     }
 
     @Operation(summary = "Obtiene un vendedor/a a través de un id")
@@ -132,14 +153,19 @@ public class VendorController {
             @ApiResponse(responseCode = "404", description = "Vendedor/a no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class))),
             @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Shop.class)))
     })
-    @PatchMapping(value = "/vendors/{id}")
-    public ResponseEntity patchVendorShop(@PathVariable("id") long vendorId, @RequestBody Map<Object, Object> fields){
+    @PatchMapping(value = "/vendors/{id}/shop", consumes = "application/json-patch+json")
+    public ResponseEntity patchVendorShop(@PathVariable("id") long vendorId, @RequestBody long shopId){
         Vendor vendor = vendorService.findById(vendorId).orElseThrow(() -> new VendorNotFoundException(vendorId));
+        logger.info(vendor.toString());
         Shop shop = shopService.findById(vendor.getShop().getId()).orElseThrow(() -> new ShopNotFoundException(vendor.getShop().getId()));
         logger.info(shop.toString());
-        fields.put("shop", shop);
+
+        Shop newShop = shopService.findById(shopId).orElseThrow(() -> new ShopNotFoundException(shopId));
+        logger.info(newShop.toString());
+
+        vendor.setShop(newShop);
         vendorService.modifyVendor(vendorId, vendor);
-        return new ResponseEntity<>(vendor, HttpStatus.OK);
+        return new ResponseEntity(vendor.getShop(), HttpStatus.OK);
     }*/
 
     /**
