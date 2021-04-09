@@ -5,12 +5,15 @@ import com.svalero.springweb.domain.Vendor;
 import com.svalero.springweb.exception.ProductNotFoundException;
 import com.svalero.springweb.exception.VendorNotFoundException;
 import com.svalero.springweb.service.ProductService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-@RestController
+@RestController(value = "/products")
 @Tag(name = "Products", description = "Listado de productos")
 public class ProductController {
 
@@ -40,8 +43,8 @@ public class ProductController {
      * @return
      */
     @Operation(summary = "Lista todos los productos de la BD según los parámetros que se le pasen a la URL." +
-            "findProducts() gestionará dichos parámetros e invocará a unos métodos u otros que devolverán cada uno" +
-            "una response distinta")
+            "findProducts() gestionará dichos parámetros e invocará a unos métodos u otros que devolverán cada uno " +
+            "una response distinta", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Lisa de productos",
                     content = @Content(array = @ArraySchema(schema = @Schema(implementation = Product.class))))
