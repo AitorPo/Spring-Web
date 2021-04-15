@@ -74,6 +74,11 @@ public class VendorServiceImpl implements VendorService{
     }
 
     @Override
+    public Optional<Vendor> findByNameAndPhone(String name, int phone) {
+        return vendorRepository.findByNameAndPhone(name, phone);
+    }
+
+    @Override
     public int countVendors(long id) {
         shopRepository.findById(id).orElseThrow(() -> new ShopNotFoundException(id));
         return vendorRepository.countVendors((int) id);

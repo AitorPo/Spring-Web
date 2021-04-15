@@ -52,7 +52,7 @@ public class ShopController {
     @Operation(summary = "Obtiene los datos de una tienda a través de su id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Tienda encontrada", content = @Content(schema = @Schema(implementation = Shop.class))),
-            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Shop.class)))
+            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @GetMapping(value = "/shops/{id}", produces = "application/json")
     public ResponseEntity<Shop> getShop(@PathVariable("id") long id){
@@ -64,7 +64,7 @@ public class ShopController {
     @Operation(summary = "Añade una tienda a la BD")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Tienda añadida", content = @Content(schema = @Schema(implementation = Shop.class))),
-            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = City.class)))
+            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PostMapping(value = "/shops", produces = "application/json", consumes = "application/json")
     public ResponseEntity addShop(@RequestBody Shop shop){
@@ -78,8 +78,8 @@ public class ShopController {
     @Operation(summary = "Actualiza los datos de una tienda a través de su id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Tienda actualizada", content = @Content(schema = @Schema(implementation = Shop.class))),
-            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Shop.class))),
-            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = City.class)))
+            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Response.class))),
+            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PutMapping(value = "/shops/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity updateShop(@PathVariable("id") long id, @RequestBody Shop newShop){
@@ -93,7 +93,7 @@ public class ShopController {
     @Operation(summary = "Borra una tienda de la BD a través de su id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Tienda eliminada correctamente", content = @Content(schema = @Schema(implementation = Shop.class))),
-            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Shop.class)))
+            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @DeleteMapping(value = "/shops/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Response> deleteShop(@PathVariable long id){
@@ -104,7 +104,7 @@ public class ShopController {
     @Operation(summary = "Actualiza campos determinados de una tienda a partir de su id. Se pueden 'parchear' varios campos a la vez")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Tienda 'parcheada' correctamente", content = @Content(schema = @Schema(implementation = Shop.class))),
-            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Shop.class)))
+            @ApiResponse(responseCode = "404", description = "Tienda no encontrada", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PatchMapping(value = "/shops/{id}")
     public ResponseEntity patchShop(@PathVariable("id") long id, @RequestBody Map<Object, Object> fields){

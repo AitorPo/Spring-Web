@@ -18,5 +18,6 @@ public interface VendorService {
     Vendor getVendor(long id);
     Vendor patchShop(Shop shop, Vendor newVendor);
     Vendor findBySurname(String surname);
+    Optional<Vendor> findByNameAndPhone(String name, int phone);
     int countVendors(long id);
 }

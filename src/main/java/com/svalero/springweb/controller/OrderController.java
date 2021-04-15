@@ -10,10 +10,16 @@ import com.svalero.springweb.exception.VendorNotFoundException;
 import com.svalero.springweb.service.order.OrderService;
 import com.svalero.springweb.service.vendor.VendorService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.headers.Header;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.aspectj.weaver.ast.Or;
 import org.slf4j.Logger;
@@ -42,12 +48,13 @@ public class OrderController {
     private VendorService vendorService;
 
 
-    @Operation(summary = "Obtiene el listado de los pedidos de la BD")
+    @Operation(summary = "Obtiene el listado de los pedidos de la BD", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Listado de pedidos", content =  @Content(schema = @Schema(implementation = Order.class)))
     })
     @GetMapping(value = "/orders", produces = "application/json")
     public ResponseEntity<Set<Order>> getOrders(){
+
         logger.info("Inicio de getOrders()");
         Set<Order> orders = null;
         orders = orderService.findAll();
@@ -59,8 +66,8 @@ public class OrderController {
     @Operation(summary = "Uno de los endpoints extra. Obtiene el promedio de ventas de un vendedor/a por su id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Devuelve un JSON con la cantidad promedio de venta", content = @Content(schema = @Schema(implementation = Order.class))),
-            @ApiResponse(responseCode = "404", description = "JSON con error: Ese/a vendedor/a no ha realizado ningún pedido", content = @Content(schema = @Schema(implementation = Order.class))),
-            @ApiResponse(responseCode = "404", description = "JSON con error de vendedor/a no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class)))
+            @ApiResponse(responseCode = "404", description = "JSON con error: Ese/a vendedor/a no ha realizado ningún pedido", content = @Content(schema = @Schema(implementation = Response.class))),
+            @ApiResponse(responseCode = "404", description = "JSON con error de vendedor/a no encontrado/a", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @GetMapping(value = "/orders/details/average", produces = "application/json")
     public ResponseEntity getAveragePrice (@RequestParam(value = "vendor_id", defaultValue = "0") long vendorId){
@@ -77,7 +84,7 @@ public class OrderController {
     @Operation(summary = "Obtiene los datos de un pedido mediante su id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Devuelve el JSON del pedido", content = @Content(schema = @Schema(implementation = Order.class))),
-            @ApiResponse(responseCode = "404", description = "Pedido no encontrado", content = @Content(schema = @Schema(implementation = Order.class))),
+            @ApiResponse(responseCode = "404", description = "Pedido no encontrado", content = @Content(schema = @Schema(implementation = Response.class))),
     })
     @GetMapping(value = "/orders/{id}", produces = "application/json")
     public ResponseEntity<Order> getOrder(@PathVariable("id") long id){
@@ -90,7 +97,7 @@ public class OrderController {
     @Operation(summary = "Permite añadir un pedido a la BD")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Añade un pedido a la BD. Devolverá el JSON del pedido", content = @Content(schema = @Schema(implementation = Order.class))),
-            @ApiResponse(responseCode = "404", description = "Vendedor/a no encontrado/a", content = @Content(schema = @Schema(implementation = Vendor.class)))
+            @ApiResponse(responseCode = "404", description = "Vendedor/a no encontrado/a", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PostMapping(value = "/orders", produces = "application/json", consumes = "application/json")
     public ResponseEntity addOrder(@RequestBody OrderDTO orderDTO) {
@@ -104,7 +111,7 @@ public class OrderController {
     @Operation(summary = "Actualiza los datos de un pedido mediante su id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Actualiza el pedido. Devuelve el JSON actualziado", content = @Content(schema = @Schema(implementation = Order.class))),
-            @ApiResponse(responseCode = "404", description = "Pedido no encontrado", content = @Content(schema = @Schema(implementation = Order.class))),
+            @ApiResponse(responseCode = "404", description = "Pedido no encontrado", content = @Content(schema = @Schema(implementation = Response.class))),
     })
     @PutMapping(value = "/orders/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity updateOrder(@PathVariable("id") long id, @RequestBody Order newOrder){
@@ -117,7 +124,7 @@ public class OrderController {
     @Operation(summary = "Elimina un pedido de la BD mediante su id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Elimina el pedido de la BD. Devuelve mensaje informativo", content = @Content(schema = @Schema(implementation = Order.class))),
-            @ApiResponse(responseCode = "404", description = "Pedido no encontrado", content = @Content(schema = @Schema(implementation = Order.class))),
+            @ApiResponse(responseCode = "404", description = "Pedido no encontrado", content = @Content(schema = @Schema(implementation = Response.class))),
     })
     @DeleteMapping(value = "/orders/{id}", produces = "application/json")
     public ResponseEntity<Response> deleteOrder(@PathVariable("id") long id){
@@ -128,7 +135,7 @@ public class OrderController {
     @Operation(summary = "Actualiza campos determinados de un pedido a a partir de su id. Se pueden 'parchear' varios campos a la vez")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Pedido 'parcheado' correctamente", content = @Content(schema = @Schema(implementation = Order.class))),
-            @ApiResponse(responseCode = "404", description = "Pedido no encontrado", content = @Content(schema = @Schema(implementation = Order.class)))
+            @ApiResponse(responseCode = "404", description = "Pedido no encontrado", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PatchMapping(value = "/orders/{id}")
     public ResponseEntity patchOrder(@PathVariable("id") long id, @RequestBody Map<Object, Object> fields){

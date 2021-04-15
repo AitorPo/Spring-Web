@@ -12,9 +12,10 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity(name = "shops")
+@Schema(description = "Información relativa a cada tienda")
 public class Shop {
 
-    @Schema(description = "Número identificativo de cada tienda", example = "1", required = true)
+    @Schema(description = "Identificador de cada tienda", example = "1")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -45,7 +46,7 @@ public class Shop {
     @Column
     private String adress;
 
-    @Schema(description = "Identificativo de la ciudad en la que se encuentra la tienda", example = "1")
+    @Schema()
     @JsonDeserialize(using = CityJsonDeserializer.class)
     @ManyToOne
     @JoinColumn(name = "city_id")

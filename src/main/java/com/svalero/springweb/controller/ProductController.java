@@ -1,34 +1,29 @@
 package com.svalero.springweb.controller;
 
 import com.svalero.springweb.domain.Product;
-import com.svalero.springweb.domain.Vendor;
 import com.svalero.springweb.exception.ProductNotFoundException;
-import com.svalero.springweb.exception.VendorNotFoundException;
-import com.svalero.springweb.service.ProductService;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.Authorization;
+import com.svalero.springweb.service.product.ProductService;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-@RestController(value = "/products")
+@RestController()
 @Tag(name = "Products", description = "Listado de productos")
 public class ProductController {
 
@@ -44,7 +39,7 @@ public class ProductController {
      */
     @Operation(summary = "Lista todos los productos de la BD según los parámetros que se le pasen a la URL." +
             "findProducts() gestionará dichos parámetros e invocará a unos métodos u otros que devolverán cada uno " +
-            "una response distinta", security = @SecurityRequirement(name = "bearerAuth"))
+            "una response distinta")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Lisa de productos",
                     content = @Content(array = @ArraySchema(schema = @Schema(implementation = Product.class))))
@@ -64,7 +59,7 @@ public class ProductController {
     @Operation(summary = "Uno de los tres endpoints extra. Devuelve la suma del precio de todos los productos de la BD o de todos los productos por categoría")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Devuelve la suma de los productos", content = @Content(schema = @Schema(implementation = Product.class))),
-            @ApiResponse(responseCode = "404", description = "JSON con mensaje: Categoría no encontrada", content = @Content(schema = @Schema(implementation = Product.class)))
+            @ApiResponse(responseCode = "404", description = "JSON con mensaje: Categoría no encontrada", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @GetMapping(value = "/products/sum", produces = "application/json")
     public ResponseEntity sumAllProducts(@RequestParam(value = "category", defaultValue = "") String category){
@@ -84,7 +79,7 @@ public class ProductController {
     @Operation(summary = "Consulta de un producto específico a través de su id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Producto econtrado", content = @Content(schema = @Schema(implementation = Product.class))),
-            @ApiResponse(responseCode = "404", description = "Producto no encontrado", content = @Content(schema = @Schema(implementation = Product.class)))
+            @ApiResponse(responseCode = "404", description = "Producto no encontrado", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @GetMapping(value = "/products/{id}", produces = "application/json")
     public ResponseEntity<Product> getProduct(@PathVariable("id") long id){
@@ -119,7 +114,7 @@ public class ProductController {
     @Operation(summary = "Actualiza la información de un producto existente")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Producto modificado correctamente", content = @Content(schema = @Schema(implementation = Product.class))),
-            @ApiResponse(responseCode = "404", description = "Producto no encontrado", content = @Content(schema = @Schema(implementation = Product.class)))
+            @ApiResponse(responseCode = "404", description = "Producto no encontrado", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PutMapping(value = "/products/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Product> updateProduct(@PathVariable("id") long id, @RequestBody Product newProduct){
@@ -130,7 +125,7 @@ public class ProductController {
     @Operation(summary = "Actualiza campos determinados de un producto a partir de su id. Se pueden 'parchear' varios campos a la vez")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Producto 'parcheado' correctamente", content = @Content(schema = @Schema(implementation = Product.class))),
-            @ApiResponse(responseCode = "404", description = "Producto no encontrado", content = @Content(schema = @Schema(implementation = Product.class)))
+            @ApiResponse(responseCode = "404", description = "Producto no encontrado", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PatchMapping(value = "/products/{id}")
     public ResponseEntity patchProduct(@PathVariable("id") long id, @RequestBody Map<Object, Object> fields){
@@ -151,7 +146,7 @@ public class ProductController {
     @Operation(summary = "Elimina un producto existente de la BD")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Producto eliminado correctamente", content = @Content(schema = @Schema(implementation = Product.class))),
-            @ApiResponse(responseCode = "404", description = "Producto no encontrado", content = @Content(schema = @Schema(implementation = Product.class)))
+            @ApiResponse(responseCode = "404", description = "Producto no encontrado", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @DeleteMapping(value = "/products/{id}", produces = "application/json")
     public ResponseEntity<Response> deleteProduct(@PathVariable long id) {

@@ -2,6 +2,8 @@ package com.svalero.springweb.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.svalero.springweb.deserializer.ProductJsonDeserializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,17 +42,19 @@ public class OrderDetail {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime createdAt;
 
-    @Schema(description = "Establecimiento/lugar de emisión de la factura", example = "El Corte Inglés C/Colón, Valencia", defaultValue = "Online")
+    @Schema(description = "Nombre de la tienda de emisión de la factura obtenida de la tienda del vendor/a",
+            example = "El Corte Inglés", defaultValue = "Online")
     @Column
     private String establishment;
 
-    @Schema(description = "Identificador de cada producto que contiene la facutra", example = "1", required = true)
+    @Schema()
+    @JsonDeserialize(using = ProductJsonDeserializer.class)
     @ManyToOne
     // JoinColumn SIEMPRE va en el lado N de la relación
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @Schema(description = "Identificador de cada pedido que contiene la facutra", example = "1", required = true)
+    @Schema(description = "Identificador del pedido al que corresponde cada detalle", example = "1", required = true)
     @ManyToOne
     @JoinColumn(name = "order_id")
     // Evita anidamientos en la response de la API

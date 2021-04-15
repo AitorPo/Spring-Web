@@ -49,7 +49,7 @@ public class CityController {
     @Operation(summary = "Obtiene la información de una ciudad a partir de su id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Ciudad encontrada", content = @Content(schema = @Schema(implementation = City.class))),
-            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = City.class)))
+            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @GetMapping(value = "/cities/{id}", produces = "application/json")
     public ResponseEntity<City> getCity(@PathVariable("id") long id){
@@ -72,7 +72,7 @@ public class CityController {
     @Operation(summary = "Actualiza los datos de una ciudad a partir de su id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Ciudad actualizada correctamente", content = @Content(schema = @Schema(implementation = City.class))),
-            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = City.class)))
+            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PutMapping(value = "/cities/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<City> updateCity(@PathVariable("id") long id, @RequestBody City newCity){
@@ -83,7 +83,7 @@ public class CityController {
     @Operation(summary = "Elimina una ciudad de la BD a través de su id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Ciudad eliminada correctamente", content = @Content(schema = @Schema(implementation = City.class))),
-            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = City.class)))
+            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @DeleteMapping(value = "/cities/{id}", produces = "application/json")
     public ResponseEntity<Response> deleteCity(@PathVariable("id") long id){
@@ -94,7 +94,7 @@ public class CityController {
     @Operation(summary = "Actualiza campos determinados de una ciudad a partir de su id. Se pueden 'parchear' varios campos a la vez")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Ciudad 'parcheada' correctamente", content = @Content(schema = @Schema(implementation = City.class))),
-            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = City.class)))
+            @ApiResponse(responseCode = "404", description = "Ciudad no encontrada", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PatchMapping(value = "/cities/{id}")
     public ResponseEntity patchCity(@PathVariable("id") long id, @RequestBody Map<Object, Object> fields){

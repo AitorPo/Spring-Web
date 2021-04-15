@@ -1,6 +1,7 @@
 package com.svalero.springweb.controller;
 
-import com.svalero.springweb.domain.Product;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,20 +14,25 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Schema(description = "Notificación al usuario/a sobre la operación realizada. Encapsula a la clase Error")
 public class Response {
-    public static final int NO_ERROR = 0;
-    public static final int NOT_FOUND = 101;
+    public static final int OK = 200;
+    public static final int NOT_FOUND = 404;
 
-    public static final String NO_MESSAGE = "Operación realizada satisfactoriamente";
+    public static final String MESSAGE = "Operación realizada satisfactoriamente";
 
     private Error error;
 
     @Data
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
+    @Schema(description = "Creación del mensaje de notificación para el usuario/a tras realizar una operación")
     static class Error{
+
+        @Schema(description = "Código HTTP obtenido de la operación realizada", example = "404")
         private long errorCode;
+
+        @Schema(description = "Mensaje obtenido tras realizar la operación")
         private String errorMessage;
-        //private Product product;
 
         public Error(int errorCode, String errorMessage) {
             this.errorCode = errorCode;
@@ -34,11 +40,8 @@ public class Response {
         }
     }
 
-    /*public static Response noErrorResponse(Product product) {
-        return new Response(new Error(NO_ERROR, NO_MESSAGE, product));
-    }*/
     public static Response noErrorResponse() {
-        return new Response(new Error(NO_ERROR, NO_MESSAGE));
+        return new Response(new Error(OK, MESSAGE));
     }
 
     public static Response errorResponse(int errorCode, String errorMessage){

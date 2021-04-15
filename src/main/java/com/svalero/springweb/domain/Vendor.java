@@ -12,9 +12,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity(name = "vendors")
+@Schema(description = "Información relativa a cada vendedor/a")
 public class Vendor {
 
     @Schema(description = "Identificador único de cada vendedor/a", example = "1", required = true)
@@ -47,7 +46,7 @@ public class Vendor {
     @Column
     private int phone;
 
-    @Schema(description = "Itentificador de la tienda a la que pertenece el vendedor/a", example = "1")
+    @Schema()
     @JsonDeserialize(using = ShopJsonDeserializer.class)
     @ManyToOne
     @JoinColumn(name = "shop_id")   // Hace referencia al campo "shop_id" de la tabla "vendors"

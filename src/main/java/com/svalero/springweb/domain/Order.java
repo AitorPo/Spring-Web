@@ -17,6 +17,7 @@ import java.util.List;
 
 @Data
 @Entity(name = "orders")
+@Schema(description = "Información relativa de cada pedido")
 public class Order {
 
     @Schema(description = "Identificador de cada pedido", example = "1")
@@ -42,7 +43,7 @@ public class Order {
     @Column
     private boolean shipped;
 
-    @Schema(description = "Identificador del vendedor/a que ha expedido la factura", example = "1", required = true)
+    @Schema()
     @JsonDeserialize(using = VendorJsonDeserializer.class)
     @ManyToOne
     @JoinColumn(name = "vendor_id")

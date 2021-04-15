@@ -149,9 +149,9 @@
 2021-04-04 12:25:13,721 INFO com.svalero.springweb.controller.ProductController [http-nio-8080-exec-10] Fin de getProducts()
 2021-04-04 12:25:29,651 ERROR com.svalero.springweb.controller.ProductController [http-nio-8080-exec-1] Product not found: 200
 com.svalero.springweb.exception.ProductNotFoundException: Product not found: 200
-	at com.svalero.springweb.service.ProductServiceImpl.lambda$deleteProduct$1(ProductServiceImpl.java:59)
+	at com.svalero.springweb.service.product.ProductServiceImpl.lambda$deleteProduct$1(ProductServiceImpl.java:59)
 	at java.base/java.util.Optional.orElseThrow(Optional.java:401)
-	at com.svalero.springweb.service.ProductServiceImpl.deleteProduct(ProductServiceImpl.java:59)
+	at com.svalero.springweb.service.product.ProductServiceImpl.deleteProduct(ProductServiceImpl.java:59)
 	at com.svalero.springweb.controller.ProductController.deleteProduct(ProductController.java:108)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -236,9 +236,9 @@ com.svalero.springweb.exception.ProductNotFoundException: Product not found: 200
 2021-04-04 12:31:44,304 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
 2021-04-04 12:31:44,383 ERROR com.svalero.springweb.controller.ProductController [http-nio-8080-exec-2] Product not found: 7
 com.svalero.springweb.exception.ProductNotFoundException: Product not found: 7
-	at com.svalero.springweb.service.ProductServiceImpl.lambda$deleteProduct$1(ProductServiceImpl.java:59)
+	at com.svalero.springweb.service.product.ProductServiceImpl.lambda$deleteProduct$1(ProductServiceImpl.java:59)
 	at java.base/java.util.Optional.orElseThrow(Optional.java:401)
-	at com.svalero.springweb.service.ProductServiceImpl.deleteProduct(ProductServiceImpl.java:59)
+	at com.svalero.springweb.service.product.ProductServiceImpl.deleteProduct(ProductServiceImpl.java:59)
 	at com.svalero.springweb.controller.ProductController.deleteProduct(ProductController.java:110)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -967,9 +967,9 @@ com.svalero.springweb.exception.ProductNotFoundException: Product not found: 100
 2021-04-04 13:59:50,539 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringwebApplication in 5.138 seconds (JVM running for 5.576)
 2021-04-04 16:04:56,642 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 18360 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
 2021-04-04 16:04:56,646 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
-2021-04-04 16:04:57,349 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.ProductServiceImpl]
+2021-04-04 16:04:57,349 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.product.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.product.ProductServiceImpl]
 2021-04-04 16:04:57,527 ERROR org.springframework.boot.SpringApplication [main] Application run failed
-org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.ProductServiceImpl]
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.product.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.product.ProductServiceImpl]
 	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:189)
 	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:330)
 	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:246)
@@ -985,7 +985,7 @@ org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse 
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
 	at com.svalero.springweb.SpringwebApplication.main(SpringwebApplication.java:10)
-Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.ProductServiceImpl]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.product.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.product.ProductServiceImpl]
 	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349)
 	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:287)
 	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132)
@@ -996,9 +996,9 @@ Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionExcep
 	... 14 common frames omitted
 2021-04-04 16:05:50,339 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 20292 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
 2021-04-04 16:05:50,343 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
-2021-04-04 16:05:50,542 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.ProductServiceImpl]
+2021-04-04 16:05:50,542 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.product.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.product.ProductServiceImpl]
 2021-04-04 16:05:50,569 ERROR org.springframework.boot.SpringApplication [main] Application run failed
-org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.ProductServiceImpl]
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.product.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.product.ProductServiceImpl]
 	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:189)
 	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:330)
 	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:246)
@@ -1014,7 +1014,7 @@ org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse 
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
 	at com.svalero.springweb.SpringwebApplication.main(SpringwebApplication.java:10)
-Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.ProductServiceImpl]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.product.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.product.ProductServiceImpl]
 	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349)
 	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:287)
 	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132)
@@ -5654,9 +5654,9 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2021-04-04 20:45:25,061 INFO org.springdoc.api.AbstractOpenApiResource [http-nio-8080-exec-2] Init duration for springdoc-openapi is: 394 ms
 2021-04-05 11:31:34,416 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringwebApplication using Java 15.0.1 on Aitor with PID 1028 (C:\Users\User\IntelliJProjects\Spring-Web-2\target\classes started by User in C:\Users\User\IntelliJProjects\Spring-Web-2)
 2021-04-05 11:31:34,419 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
-2021-04-05 11:31:34,630 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.ProductServiceImpl]
+2021-04-05 11:31:34,630 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.product.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.product.ProductServiceImpl]
 2021-04-05 11:31:34,656 ERROR org.springframework.boot.SpringApplication [main] Application run failed
-org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.ProductServiceImpl]
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.svalero.springweb.SpringwebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.product.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.product.ProductServiceImpl]
 	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:189)
 	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:330)
 	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:246)
@@ -5672,7 +5672,7 @@ org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse 
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
 	at com.svalero.springweb.SpringwebApplication.main(SpringwebApplication.java:10)
-Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.ProductServiceImpl]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productServiceImpl' for bean class [com.svalero.springweb.service.product.ProductServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.svalero.springweb.service.product.ProductServiceImpl]
 	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349)
 	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:287)
 	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132)
@@ -6175,7 +6175,7 @@ java.lang.IllegalStateException: Optional float parameter 'price' is present but
 2021-04-05 12:30:28,589 INFO com.svalero.springweb.controller.ProductController [http-nio-8080-exec-2] Inicio de getProducts()
 2021-04-05 12:30:28,634 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.isBlank()" because "name" is null] with root cause
 java.lang.NullPointerException: Cannot invoke "String.isBlank()" because "name" is null
-	at com.svalero.springweb.service.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
 	at com.svalero.springweb.controller.ProductController.getProducts(ProductController.java:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -6261,7 +6261,7 @@ java.lang.NullPointerException: Cannot invoke "String.isBlank()" because "name" 
 2021-04-05 12:31:24,403 INFO com.svalero.springweb.controller.ProductController [http-nio-8080-exec-1] Inicio de getProducts()
 2021-04-05 12:31:24,407 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "name" is null] with root cause
 java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "name" is null
-	at com.svalero.springweb.service.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
 	at com.svalero.springweb.controller.ProductController.getProducts(ProductController.java:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -6319,7 +6319,7 @@ java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "n
 2021-04-05 12:31:26,540 INFO com.svalero.springweb.controller.ProductController [http-nio-8080-exec-2] Inicio de getProducts()
 2021-04-05 12:31:26,542 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "name" is null] with root cause
 java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "name" is null
-	at com.svalero.springweb.service.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
 	at com.svalero.springweb.controller.ProductController.getProducts(ProductController.java:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -6377,7 +6377,7 @@ java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "n
 2021-04-05 12:31:27,347 INFO com.svalero.springweb.controller.ProductController [http-nio-8080-exec-3] Inicio de getProducts()
 2021-04-05 12:31:27,350 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-3] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "name" is null] with root cause
 java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "name" is null
-	at com.svalero.springweb.service.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
 	at com.svalero.springweb.controller.ProductController.getProducts(ProductController.java:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -6435,7 +6435,7 @@ java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "n
 2021-04-05 12:31:31,954 INFO com.svalero.springweb.controller.ProductController [http-nio-8080-exec-4] Inicio de getProducts()
 2021-04-05 12:31:31,957 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-4] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "name" is null] with root cause
 java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "name" is null
-	at com.svalero.springweb.service.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
 	at com.svalero.springweb.controller.ProductController.getProducts(ProductController.java:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -6521,7 +6521,7 @@ java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "n
 2021-04-05 12:32:25,674 INFO com.svalero.springweb.controller.ProductController [http-nio-8080-exec-1] Inicio de getProducts()
 2021-04-05 12:32:25,678 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "java.lang.Float.equals(Object)" because "price" is null] with root cause
 java.lang.NullPointerException: Cannot invoke "java.lang.Float.equals(Object)" because "price" is null
-	at com.svalero.springweb.service.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
 	at com.svalero.springweb.controller.ProductController.getProducts(ProductController.java:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -6753,7 +6753,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Float.equals(Object)" b
 2021-04-05 12:45:13,926 INFO com.svalero.springweb.controller.ProductController [http-nio-8080-exec-2] Inicio de getProducts()
 2021-04-05 12:45:13,931 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "name" is null] with root cause
 java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "name" is null
-	at com.svalero.springweb.service.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findProducts(ProductServiceImpl.java:20)
 	at com.svalero.springweb.controller.ProductController.getProducts(ProductController.java:50)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -7131,7 +7131,7 @@ org.hibernate.TypeMismatchException: Provided id of the wrong type for class com
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
 	at com.sun.proxy.$Proxy105.findById(Unknown Source)
-	at com.svalero.springweb.service.ProductServiceImpl.findById(ProductServiceImpl.java:55)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findById(ProductServiceImpl.java:55)
 	at com.svalero.springweb.controller.ProductController.getProduct(ProductController.java:66)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -7241,7 +7241,7 @@ org.hibernate.TypeMismatchException: Provided id of the wrong type for class com
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
 	at com.sun.proxy.$Proxy105.findById(Unknown Source)
-	at com.svalero.springweb.service.ProductServiceImpl.findById(ProductServiceImpl.java:55)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findById(ProductServiceImpl.java:55)
 	at com.svalero.springweb.controller.ProductController.getProduct(ProductController.java:66)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -7351,7 +7351,7 @@ org.hibernate.TypeMismatchException: Provided id of the wrong type for class com
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
 	at com.sun.proxy.$Proxy105.findById(Unknown Source)
-	at com.svalero.springweb.service.ProductServiceImpl.findById(ProductServiceImpl.java:55)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findById(ProductServiceImpl.java:55)
 	at com.svalero.springweb.controller.ProductController.getProduct(ProductController.java:66)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -7489,7 +7489,7 @@ org.hibernate.TypeMismatchException: Provided id of the wrong type for class com
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
 	at com.sun.proxy.$Proxy105.findById(Unknown Source)
-	at com.svalero.springweb.service.ProductServiceImpl.findById(ProductServiceImpl.java:50)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findById(ProductServiceImpl.java:50)
 	at com.svalero.springweb.controller.ProductController.getProduct(ProductController.java:66)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -7599,7 +7599,7 @@ org.hibernate.TypeMismatchException: Provided id of the wrong type for class com
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
 	at com.sun.proxy.$Proxy105.findById(Unknown Source)
-	at com.svalero.springweb.service.ProductServiceImpl.findById(ProductServiceImpl.java:50)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findById(ProductServiceImpl.java:50)
 	at com.svalero.springweb.controller.ProductController.getProduct(ProductController.java:66)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -7711,7 +7711,7 @@ org.hibernate.TypeMismatchException: Provided id of the wrong type for class com
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
 	at com.sun.proxy.$Proxy105.findById(Unknown Source)
-	at com.svalero.springweb.service.ProductServiceImpl.findById(ProductServiceImpl.java:50)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findById(ProductServiceImpl.java:50)
 	at com.svalero.springweb.controller.ProductController.getProduct(ProductController.java:66)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -7849,7 +7849,7 @@ org.hibernate.TypeMismatchException: Provided id of the wrong type for class com
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
 	at com.sun.proxy.$Proxy105.findById(Unknown Source)
-	at com.svalero.springweb.service.ProductServiceImpl.findById(ProductServiceImpl.java:50)
+	at com.svalero.springweb.service.product.ProductServiceImpl.findById(ProductServiceImpl.java:50)
 	at com.svalero.springweb.controller.ProductController.getProduct(ProductController.java:64)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)

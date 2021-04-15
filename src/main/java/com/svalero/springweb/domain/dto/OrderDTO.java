@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Data
 @NoArgsConstructor
-@Tag(name = "Data Transfer Object", description = "Información visible por los/as clientes/as")
+@Schema(description = "Información visible por los/as clientes/as (Data Transfer Object)")
 public class OrderDTO {
 
     @Schema(description = "Listado de los nombres de los productos adquiridos")

@@ -17,6 +17,7 @@ public interface VendorRepository extends CrudRepository<Vendor, Long> {
     Optional<Vendor> findById(long id);
     Vendor findBySurname(String surname);
     Vendor findByName(String name);
+    Optional<Vendor> findByNameAndPhone(String name, int phone);
 
     @Query("FROM vendors WHERE id = :id")
     Vendor getVendor(@Param("id") long id);

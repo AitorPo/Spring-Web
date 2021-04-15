@@ -3135,9 +3135,9 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.setAccess
 2021-04-06 20:48:31,670 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-9] Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type '' not supported]
 2021-04-06 20:49:40,253 ERROR com.svalero.springweb.controller.ProductController [http-nio-8080-exec-2] Producto con id: 2 no encontrado
 com.svalero.springweb.exception.ProductNotFoundException: Producto con id: 2 no encontrado
-	at com.svalero.springweb.service.ProductServiceImpl.lambda$deleteProduct$1(ProductServiceImpl.java:111)
+	at com.svalero.springweb.service.product.ProductServiceImpl.lambda$deleteProduct$1(ProductServiceImpl.java:111)
 	at java.base/java.util.Optional.orElseThrow(Optional.java:401)
-	at com.svalero.springweb.service.ProductServiceImpl.deleteProduct(ProductServiceImpl.java:111)
+	at com.svalero.springweb.service.product.ProductServiceImpl.deleteProduct(ProductServiceImpl.java:111)
 	at com.svalero.springweb.controller.ProductController.deleteProduct(ProductController.java:139)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)

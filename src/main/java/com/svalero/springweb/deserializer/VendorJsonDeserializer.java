@@ -6,9 +6,11 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.svalero.springweb.domain.Vendor;
 import com.svalero.springweb.repository.VendorRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.io.IOException;
 
+@Tag(name = "VendorJsonDeserializer", description = "Permite asignar un objeto Vendor solo con el id")
 public class VendorJsonDeserializer extends JsonDeserializer<Vendor> {
 
     private VendorRepository vendorRepository;

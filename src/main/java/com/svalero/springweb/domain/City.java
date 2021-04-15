@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 @Data
 @Entity(name = "cities")
+@Schema(description = "Información relativa a cada ciudad")
 public class City {
 
     @Schema(description = "Identificativo de la ciudad", example = "1", required = true)

@@ -10,9 +10,8 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity(name = "products")
+@Schema(description = "Información relativa a cada producto")
 public class Product {
 
     @Schema(description = "Clave identificativa del producto", example = "1", required = true)

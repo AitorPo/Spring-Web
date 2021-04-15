@@ -755,7 +755,7 @@ Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token
 org.springframework.aop.AopInvocationException: Null return value from advice does not match primitive return type for: public abstract float com.svalero.springweb.repository.ProductRepository.sumAllProducts(java.lang.String)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:229)
 	at com.sun.proxy.$Proxy118.sumAllProducts(Unknown Source)
-	at com.svalero.springweb.service.ProductServiceImpl.sumProducts(ProductServiceImpl.java:132)
+	at com.svalero.springweb.service.product.ProductServiceImpl.sumProducts(ProductServiceImpl.java:132)
 	at com.svalero.springweb.controller.ProductController.sumAllProducts(ProductController.java:63)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -1608,7 +1608,7 @@ java.lang.ClassCastException: class java.lang.String cannot be cast to class jav
 2021-04-08 19:17:53,601 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-3] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: No matching constant for [1054]] with root cause
 java.lang.IllegalArgumentException: No matching constant for [1054]
 	at org.springframework.http.HttpStatus.valueOf(HttpStatus.java:540)
-	at com.svalero.springweb.service.ProductServiceImpl.sumProducts(ProductServiceImpl.java:142)
+	at com.svalero.springweb.service.product.ProductServiceImpl.sumProducts(ProductServiceImpl.java:142)
 	at com.svalero.springweb.controller.ProductController.sumAllProducts(ProductController.java:67)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -1884,11 +1884,11 @@ java.lang.ClassCastException: class org.springframework.http.ResponseEntity cann
 2021-04-08 19:24:25,615 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021-04-08 19:24:25,615 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
 2021-04-08 19:24:25,616 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
-2021-04-08 19:24:28,431 ERROR com.svalero.springweb.controller.ProductController [http-nio-8080-exec-3] Categoría no encontrada
-com.svalero.springweb.exception.ProductNotFoundException: Categoría no encontrada
-	at com.svalero.springweb.service.ProductServiceImpl.lambda$sumProducts$2(ProductServiceImpl.java:139)
+2021-04-08 19:24:28,431 ERROR com.svalero.springweb.controller.ProductController [http-nio-8080-exec-3] Categorï¿½a no encontrada
+com.svalero.springweb.exception.ProductNotFoundException: Categorï¿½a no encontrada
+	at com.svalero.springweb.service.product.ProductServiceImpl.lambda$sumProducts$2(ProductServiceImpl.java:139)
 	at java.base/java.util.Optional.orElseThrow(Optional.java:401)
-	at com.svalero.springweb.service.ProductServiceImpl.sumProducts(ProductServiceImpl.java:139)
+	at com.svalero.springweb.service.product.ProductServiceImpl.sumProducts(ProductServiceImpl.java:139)
 	at com.svalero.springweb.controller.ProductController.sumAllProducts(ProductController.java:67)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -2548,8 +2548,8 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" bec
 2021-04-08 19:56:45,519 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021-04-08 19:56:45,519 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
 2021-04-08 19:56:45,520 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
-2021-04-08 19:56:45,601 ERROR com.svalero.springweb.controller.OrderController [http-nio-8080-exec-2] Ese/a vendedor/a no ha realizado ningún pedido
-com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha realizado ningún pedido
+2021-04-08 19:56:45,601 ERROR com.svalero.springweb.controller.OrderController [http-nio-8080-exec-2] Ese/a vendedor/a no ha realizado ningï¿½n pedido
+com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha realizado ningï¿½n pedido
 	at com.svalero.springweb.controller.OrderController.lambda$getAveragePrice$0(OrderController.java:61)
 	at java.base/java.util.Optional.orElseThrow(Optional.java:401)
 	at com.svalero.springweb.controller.OrderController.getAveragePrice(OrderController.java:61)
@@ -2718,8 +2718,8 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" bec
 2021-04-08 19:57:42,683 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021-04-08 19:57:42,683 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
 2021-04-08 19:57:42,684 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
-2021-04-08 19:57:42,763 ERROR com.svalero.springweb.controller.OrderController [http-nio-8080-exec-2] Ese/a vendedor/a no ha realizado ningún pedido
-com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha realizado ningún pedido
+2021-04-08 19:57:42,763 ERROR com.svalero.springweb.controller.OrderController [http-nio-8080-exec-2] Ese/a vendedor/a no ha realizado ningï¿½n pedido
+com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha realizado ningï¿½n pedido
 	at com.svalero.springweb.controller.OrderController.lambda$getAveragePrice$0(OrderController.java:61)
 	at java.base/java.util.Optional.orElseThrow(Optional.java:401)
 	at com.svalero.springweb.controller.OrderController.getAveragePrice(OrderController.java:61)
@@ -2776,8 +2776,8 @@ com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha 
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-2021-04-08 19:57:48,543 ERROR com.svalero.springweb.controller.OrderController [http-nio-8080-exec-3] Ese/a vendedor/a no ha realizado ningún pedido
-com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha realizado ningún pedido
+2021-04-08 19:57:48,543 ERROR com.svalero.springweb.controller.OrderController [http-nio-8080-exec-3] Ese/a vendedor/a no ha realizado ningï¿½n pedido
+com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha realizado ningï¿½n pedido
 	at com.svalero.springweb.controller.OrderController.lambda$getAveragePrice$0(OrderController.java:61)
 	at java.base/java.util.Optional.orElseThrow(Optional.java:401)
 	at com.svalero.springweb.controller.OrderController.getAveragePrice(OrderController.java:61)
@@ -2834,8 +2834,8 @@ com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha 
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-2021-04-08 19:57:49,983 ERROR com.svalero.springweb.controller.OrderController [http-nio-8080-exec-4] Ese/a vendedor/a no ha realizado ningún pedido
-com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha realizado ningún pedido
+2021-04-08 19:57:49,983 ERROR com.svalero.springweb.controller.OrderController [http-nio-8080-exec-4] Ese/a vendedor/a no ha realizado ningï¿½n pedido
+com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha realizado ningï¿½n pedido
 	at com.svalero.springweb.controller.OrderController.lambda$getAveragePrice$0(OrderController.java:61)
 	at java.base/java.util.Optional.orElseThrow(Optional.java:401)
 	at com.svalero.springweb.controller.OrderController.getAveragePrice(OrderController.java:61)
@@ -2978,8 +2978,8 @@ com.svalero.springweb.exception.VendorNotFoundException: Vendedor/a con id: 100 
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-2021-04-08 19:58:47,786 ERROR com.svalero.springweb.controller.OrderController [http-nio-8080-exec-3] Ese/a vendedor/a no ha realizado ningún pedido
-com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha realizado ningún pedido
+2021-04-08 19:58:47,786 ERROR com.svalero.springweb.controller.OrderController [http-nio-8080-exec-3] Ese/a vendedor/a no ha realizado ningï¿½n pedido
+com.svalero.springweb.exception.VendorNotFoundException: Ese/a vendedor/a no ha realizado ningï¿½n pedido
 	at com.svalero.springweb.controller.OrderController.lambda$getAveragePrice$1(OrderController.java:62)
 	at java.base/java.util.Optional.orElseThrow(Optional.java:401)
 	at com.svalero.springweb.controller.OrderController.getAveragePrice(OrderController.java:62)
