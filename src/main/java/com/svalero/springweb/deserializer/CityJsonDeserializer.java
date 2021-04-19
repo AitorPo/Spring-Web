@@ -6,11 +6,12 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.svalero.springweb.domain.City;
 import com.svalero.springweb.repository.CityRepository;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.io.IOException;
 
-@Tag(name = "CityJsonDeserializer", description = "Permite asignar un objeto City solo con el id")
+@Schema(name = "CityJsonDeserializer", description = "Permite asignar un objeto City solo con el id")
 public class CityJsonDeserializer extends JsonDeserializer<City> {
 
     private CityRepository cityRepository;

@@ -2,6 +2,7 @@ package com.svalero.springweb.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.svalero.springweb.deserializer.ShopJsonDeserializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -45,6 +46,7 @@ public class Vendor {
     @Schema(description = "Número de contacto del vendedor/a", example = "123456789")
     @Column
     private int phone;
+
 
     @Schema()
     @JsonDeserialize(using = ShopJsonDeserializer.class)

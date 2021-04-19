@@ -140,6 +140,7 @@ public class OrderController {
     @PatchMapping(value = "/orders/{id}")
     public ResponseEntity patchOrder(@PathVariable("id") long id, @RequestBody Map<Object, Object> fields){
         Order order = orderService.getOrder(id);
+        if(order == null) return handlerException(new OrderNotFoundException(id));
         fields.forEach((k, v) ->{
             Field field = ReflectionUtils.findField(Order.class, (String) k);
             field.setAccessible(true);

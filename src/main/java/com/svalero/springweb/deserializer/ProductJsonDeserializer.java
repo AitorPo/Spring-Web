@@ -6,11 +6,12 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.svalero.springweb.domain.Product;
 import com.svalero.springweb.repository.ProductRepository;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.io.IOException;
 
-@Tag(name = "ProductJsonDeserializer", description = "Permite asignar un objeto Product solo con el id")
+@Schema(name = "ProductJsonDeserializer", description = "Permite asignar un objeto Product solo con el id")
 public class ProductJsonDeserializer extends JsonDeserializer<Product> {
 
     private ProductRepository productRepository;
